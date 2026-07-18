@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="عقار بوت يحول رسائل تيليجرام إلى قاعدة بيانات عقارية منظمة في Google Sheets.">
+  <meta name="theme-color" content="#0E4C67">
+  <title>عقار بوت | المساعد الذكي لمكاتب العقارات</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Meta Pixel: ضع كود Meta Pixel هنا قبل النشر -->
+  <!-- Google Analytics 4: ضع كود Google Analytics هنا قبل النشر -->
+
+  <style>
+    /* ألوان مستخرجة من شعار عقار بوت: أزرق تقني + تركواز واضح + أبيض هادئ. */
+    :root { --navy:#002b54; --gold:#009fb1; --cream:#f3f9fb; --ink:#062f50; --white:#fff; --muted:#526e7e; --border:#cfe4ec; --shadow:0 14px 34px rgba(0,43,84,.12); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:92px; }
+    body { margin:0; background:var(--cream); color:var(--ink); font-family:"Cairo",Tahoma,Arial,sans-serif; font-size:16px; line-height:1.8; }
+    a { color:inherit; text-decoration:none; }
+    button,input,select { font:inherit; }
+    .container { width:min(1120px,calc(100% - 32px)); margin:auto; }
+    .section { padding:64px 0; }
+    .eyebrow { display:block; color:var(--gold); font-weight:800; font-size:.9rem; margin-bottom:5px; }
+    h1,h2,h3,p { margin-top:0; }
+    h2 { color:var(--navy); font-size:clamp(1.7rem,4vw,2.25rem); line-height:1.45; margin-bottom:12px; }
+    .section-intro { color:var(--muted); max-width:650px; margin:0 auto; }
+    .btn { min-height:52px; display:inline-flex; align-items:center; justify-content:center; gap:9px; border:1px solid transparent; border-radius:12px; padding:10px 24px; cursor:pointer; font-weight:800; box-shadow:0 6px 0 rgba(0,0,0,.12); transition:transform .2s,background .2s,border-color .2s,box-shadow .2s; }
+    .btn:hover { transform:translateY(-3px); box-shadow:0 9px 0 rgba(0,0,0,.1); }
+    .btn:active { transform:translateY(1px); box-shadow:0 3px 0 rgba(0,0,0,.12); }
+    .btn-primary { background:var(--gold); color:#fff; }
+    .btn-primary:hover { background:#007d8c; }
+    .btn-outline { color:#fff; border-color:#94d9e1; background:transparent; }
+    .btn-outline:hover { background:#fff; color:var(--navy); }
+    .icon { width:23px; height:23px; flex:0 0 auto; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+
+    .site-header { position:sticky; top:0; z-index:20; background:rgba(255,255,255,.96); border-bottom:1px solid rgba(14,76,103,.1); backdrop-filter:blur(8px); }
+    .header-inner { min-height:72px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .logo-placeholder { display:flex; align-items:center; gap:7px; color:var(--navy); font-weight:800; font-size:1.05rem; white-space:nowrap; }
+    .logo-placeholder img { width:45px; height:45px; object-fit:contain; }
+    .header-inner .btn { min-height:42px; padding:7px 13px; font-size:.86rem; }
+
+    .hero { position:relative; isolation:isolate; background:var(--navy); color:#fff; padding:64px 0 80px; overflow:hidden; }
+    .hero::before { content:""; position:absolute; z-index:-1; width:180px; height:180px; left:-80px; top:35px; border:2px solid var(--gold); border-radius:50%; opacity:.75; }
+    .hero::after { content:""; position:absolute; z-index:-1; width:220px; height:104px; right:-42px; bottom:-46px; background:var(--gold); border-radius:58% 0 0 0; }
+    .hero-grid { display:grid; grid-template-columns:1fr; gap:36px; align-items:center; }
+    .hero-copy { text-align:center; }
+    .hero h1 { color:#fff; font-size:clamp(2rem,6vw,3.5rem); line-height:1.35; letter-spacing:-.03em; margin-bottom:16px; }
+    .hero h1::after { content:""; display:block; width:108px; height:7px; margin-top:12px; background:var(--gold); border-radius:8px; }
+    .hero p { color:#d9edf4; font-size:clamp(1rem,2.4vw,1.2rem); line-height:1.9; max-width:640px; margin:0 auto 24px; }
+    .hero-actions { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; }
+    .hero-visual { position:relative; background:#f5fcfe; border-radius:20px; padding:18px; max-width:480px; width:100%; margin:auto; border:3px solid var(--gold); box-shadow:10px 10px 0 #006a8a; animation:float-card 4s ease-in-out infinite; }
+    .hero-visual::before { content:""; position:absolute; width:58px; height:58px; left:-24px; top:-28px; border:3px dotted var(--gold); border-radius:12px; }
+    .chat-card { background:#fff; border-radius:14px; box-shadow:var(--shadow); padding:18px; text-align:right; }
+    .chat-head { display:flex; align-items:center; gap:10px; color:var(--navy); font-weight:800; border-bottom:1px solid #eee; padding-bottom:10px; }
+    .bot-dot { width:34px; height:34px; display:grid; place-items:center; background:var(--navy); color:#fff; border-radius:50%; }
+    .message { margin:16px 0 10px; background:#e4f4fa; border-radius:12px 12px 0 12px; padding:12px; font-size:.9rem; line-height:1.8; }
+    .sheet-preview { display:grid; grid-template-columns:1.1fr .9fr .8fr; gap:4px; background:#c6e1ea; border-radius:7px; overflow:hidden; font-size:.68rem; }
+    .sheet-preview span { background:#fff; padding:6px 4px; white-space:nowrap; overflow:hidden; }
+    .sheet-preview span:nth-child(-n+3) { background:#d7f0f7; font-weight:700; }
+
+    .problem { position:relative; text-align:center; }
+    .problem::before { content:""; position:absolute; top:42px; right:5%; width:72px; height:10px; border-top:3px solid var(--gold); border-bottom:3px solid var(--gold); transform:rotate(-10deg); }
+    .problem-list { margin:28px auto 0; padding:0; max-width:760px; display:grid; gap:12px; list-style:none; }
+    .problem-list li { display:flex; align-items:center; gap:13px; background:#fff; padding:15px 17px; border-radius:12px; text-align:right; border-right:4px solid var(--gold); box-shadow:0 3px 12px rgba(31,59,87,.04); transition:transform .2s,box-shadow .2s; }
+    .problem-list li:hover { transform:translateX(-5px); box-shadow:var(--shadow); }
+    .problem-list .icon { color:var(--gold); }
+    .solution { position:relative; background:#fff; text-align:center; border-top:7px solid var(--gold); }
+    .steps { margin-top:32px; display:grid; gap:18px; }
+    .step { position:relative; padding:23px 18px; border:1px solid var(--border); border-radius:12px; text-align:right; box-shadow:0 8px 20px rgba(0,43,84,.05); transition:transform .2s,border-color .2s; }
+    .step:hover { transform:translateY(-5px); border-color:var(--gold); }
+    .step-no { display:grid; place-items:center; width:38px; height:38px; background:var(--navy); color:#fff; border-radius:50%; font-weight:800; margin-bottom:13px; }
+    .step p { margin:0; font-weight:600; line-height:1.8; }
+    .features { text-align:center; }
+    .features-grid { margin-top:32px; display:grid; gap:16px; }
+    .feature-card { text-align:right; background:#fff; padding:23px 20px; border-radius:12px; border:1px solid rgba(0,43,84,.1); border-top:4px solid var(--gold); box-shadow:0 7px 18px rgba(0,43,84,.05); transition:transform .2s,box-shadow .2s; }
+    .feature-card:hover { transform:translateY(-6px); box-shadow:var(--shadow); }
+    .feature-card .icon { width:30px; height:30px; color:var(--gold); margin-bottom:12px; }
+    .feature-card h3 { color:var(--navy); font-size:1rem; line-height:1.8; margin:0; }
+    .pricing { position:relative; overflow:hidden; background:var(--navy); text-align:center; }
+    .pricing::after { content:""; position:absolute; width:170px; height:170px; left:-70px; bottom:-85px; border:18px solid var(--gold); border-radius:50%; opacity:.75; }
+    .pricing h2,.pricing .section-intro { color:#fff; }
+    .price-card { position:relative; max-width:430px; margin:28px auto 0; padding:30px 22px; background:#fff; border:3px solid var(--gold); border-radius:16px; box-shadow:12px 12px 0 rgba(0,159,177,.38); }
+    .pricing-badge { position:absolute; top:-19px; right:50%; transform:translateX(50%); padding:5px 15px; background:var(--gold); color:#fff; border-radius:999px; font-size:.82rem; font-weight:800; white-space:nowrap; }
+    .price-card p { margin-bottom:5px; color:var(--muted); }
+    .price { font-size:2.25rem; font-weight:800; color:var(--navy); margin:3px 0 5px; }
+    .price-card .btn { margin-top:20px; width:100%; }
+    .vps-note { margin:18px 0 0; padding:12px 13px; background:#edf9fb; border-right:4px solid var(--gold); border-radius:8px; color:var(--ink); font-size:.8rem; line-height:1.8; text-align:right; }
+    .faq { background:#fff; }
+    .faq-heading { text-align:center; }
+    .faq-list { max-width:780px; margin:28px auto 0; }
+    .faq-item { border-bottom:1px solid var(--border); }
+    .faq-question { width:100%; color:var(--navy); background:none; border:0; padding:18px 0; cursor:pointer; text-align:right; display:flex; align-items:center; justify-content:space-between; gap:12px; font-weight:800; }
+    .faq-question span:last-child { color:var(--gold); font-size:1.45rem; line-height:1; transition:transform .2s; }
+    .faq-question[aria-expanded="true"] span:last-child { transform:rotate(45deg); }
+    .faq-answer { display:grid; grid-template-rows:0fr; transition:grid-template-rows .25s ease; }
+    .faq-answer > div { overflow:hidden; }
+    .faq-answer p { color:var(--muted); padding-bottom:18px; margin:0; }
+    .faq-question[aria-expanded="true"] + .faq-answer { grid-template-rows:1fr; }
+    .demo { position:relative; padding:72px 0; background:#eaf7fa; border-top:7px solid var(--gold); }
+    .demo-card { max-width:690px; margin:auto; background:#fff; border-radius:16px; padding:28px 20px; box-shadow:var(--shadow); }
+    .demo-card header { text-align:center; margin-bottom:24px; }
+    .demo-card header p { color:var(--muted); margin:0; }
+    .form-grid { display:grid; gap:16px; }
+    .field { display:grid; gap:6px; }
+    label { color:var(--navy); font-weight:700; font-size:.92rem; }
+    input,select { width:100%; min-height:50px; border:1px solid #cfc7bc; border-radius:10px; padding:9px 12px; color:var(--ink); background:#fff; outline:0; }
+    input:focus,select:focus { border-color:var(--gold); box-shadow:0 0 0 3px rgba(19,140,195,.17); }
+    .error { color:#a22d2d; font-size:.82rem; min-height:1.2em; }
+    .form-submit { width:100%; margin-top:6px; }
+    .form-note { font-size:.76rem; color:var(--muted); text-align:center; margin:11px 0 0; }
+    .form-success { display:none; text-align:center; background:#e7f2e9; color:#235c35; padding:22px; border-radius:12px; font-weight:700; }
+    .form-success.visible { display:block; }
+    .form-hidden { display:none; }
+    .site-footer { background:var(--navy); color:#e7f5f9; padding:34px 0; border-top:5px solid var(--gold); }
+    .footer-inner { display:flex; flex-direction:column; align-items:center; gap:18px; text-align:center; }
+    .site-footer .logo-placeholder { color:#fff; }
+    .site-footer .logo-placeholder img { width:48px; height:48px; background:#fff; border-radius:50%; padding:2px; }
+    .footer-tagline { margin:0; color:#c7d0d8; }
+    .social-links { display:flex; gap:10px; }
+    .social-links a { display:grid; place-items:center; width:42px; height:42px; border:1px solid #72afc6; border-radius:50%; transition:background .2s; }
+    .social-links a:hover { background:var(--gold); border-color:var(--gold); }
+    .copyright { color:#aebac4; font-size:.8rem; margin:0; }
+    .whatsapp-fab { position:fixed; z-index:30; left:16px; bottom:16px; display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius:999px; background:#18a957; color:#fff; box-shadow:0 8px 20px rgba(0,43,84,.28); font-weight:800; transition:transform .2s; }
+    .whatsapp-fab:hover { transform:translateY(-3px); }
+    .whatsapp-fab .icon { width:21px; height:21px; }
+    @keyframes float-card { 50% { transform:translateY(-8px); } }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; } }
+
+    @media (min-width:600px) { .section { padding:78px 0; } .features-grid { grid-template-columns:repeat(2,1fr); } .steps { grid-template-columns:repeat(3,1fr); } .form-grid { grid-template-columns:repeat(2,1fr); } .field-full { grid-column:1/-1; } .demo-card { padding:38px; } }
+    @media (min-width:900px) { .hero { padding:88px 0; } .hero-grid { grid-template-columns:1.18fr .82fr; gap:58px; } .hero-copy { text-align:right; } .hero p { margin-right:0; } .hero-actions { justify-content:flex-start; } .features-grid { grid-template-columns:repeat(4,1fr); } .footer-inner { flex-direction:row; justify-content:space-between; text-align:right; } .steps .step:not(:last-child)::after { content:""; position:absolute; top:42px; left:-19px; width:20px; border-top:2px dashed var(--gold); } }
+    @media (max-width:380px) { .logo-placeholder img { width:39px; height:39px; } .header-inner .btn { padding:6px 10px; font-size:.78rem; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo-placeholder" href="#top" aria-label="عقار بوت - الصفحة الرئيسية"><img src="assets/aqar-bot-icon.png" alt="شعار عقار بوت"><span>عقار بوت</span></a>
+      <a class="btn btn-primary" href="#demo-form">احجز ديمو مجاني</a>
+    </div>
+  </header>
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title"><div class="container hero-grid">
+      <div class="hero-copy"><span class="eyebrow">مساعدك العقاري الذكي</span><h1 id="hero-title">عقار بوت يحوّل رسائل فريقك اليومية إلى قاعدة بيانات ذكية</h1><p>ويمنع ضياع العملاء وفرص البيع من خلال إدخال تلقائي وبحث ذكي بالذكاء الاصطناعي</p><div class="hero-actions"><a class="btn btn-primary" href="#demo-form">احجز ديمو مجاني</a><a class="btn btn-outline" href="https://wa.me/201039805216" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"/></svg>تواصل مباشر على واتساب</a></div></div>
+      <div class="hero-visual" aria-label="توضيح لتحويل رسالة تيليجرام إلى بيانات منظمة"><div class="chat-card"><div class="chat-head"><span class="bot-dot">⌂</span>عقار بوت <small>تيليجرام</small></div><div class="message">شقة ١٦٠ متر في التجمع الخامس، ٣ غرف، السعر ٤.٢ مليون، تواصل مع المالك</div><div class="sheet-preview"><span>الموقع</span><span>المساحة</span><span>السعر</span><span>التجمع الخامس</span><span>١٦٠ م²</span><span>٤.٢ م</span></div></div></div>
+    </div></section>
+    <section class="section problem" aria-labelledby="problem-title"><div class="container"><h2 id="problem-title">لو موظفينك بيقضوا نص يومهم بيدخلوا بيانات عقارات يدويًا...</h2><ul class="problem-list"><li><svg class="icon" aria-hidden="true"><use href="#icon-alert"/></svg>رسائل عملاء بتضيع وسط الزحمة اليومية</li><li><svg class="icon" aria-hidden="true"><use href="#icon-alert"/></svg>أخطاء الموظفين في إدخال البيانات</li><li><svg class="icon" aria-hidden="true"><use href="#icon-alert"/></svg>صعوبة الوصول السريع للعقار أو العميل المناسب</li></ul></div></section>
+    <section class="section solution" aria-labelledby="solution-title"><div class="container"><span class="eyebrow">ببساطة وسرعة</span><h2 id="solution-title">إزاي عقار بوت بيشتغل؟</h2><div class="steps"><article class="step"><span class="step-no">١</span><p>ابعت رسالة العقار زي ما إنت متعود على تيليجرام</p></article><article class="step"><span class="step-no">٢</span><p>الذكاء الاصطناعي يستخرج البيانات تلقائيًا (المالك، الموقع، السعر، المساحة، وأكتر)</p></article><article class="step"><span class="step-no">٣</span><p>البيانات تتنظم في Google Sheets، وتقدر تدور عليها بالعربي في أي وقت</p></article></div></div></section>
+    <section class="section features" aria-labelledby="features-title"><div class="container"><span class="eyebrow">كل اللي محتاجه فريقك</span><h2 id="features-title">مميزات توفر وقتك وتحافظ على فرصك</h2><div class="features-grid"><article class="feature-card"><svg class="icon" aria-hidden="true"><use href="#icon-spark"/></svg><h3>استخراج تلقائي لكل بيانات العقار من أي رسالة نصية</h3></article><article class="feature-card"><svg class="icon" aria-hidden="true"><use href="#icon-search"/></svg><h3>بحث ذكي بلغة طبيعية عربية داخل قاعدة بياناتك</h3></article><article class="feature-card"><svg class="icon" aria-hidden="true"><use href="#icon-telegram"/></svg><h3>يعمل داخل تيليجرام مباشرة، بدون تطبيق جديد أو تدريب</h3></article><article class="feature-card"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg><h3>مبني على تقنية موثوقة (n8n) وقابل للتطوير مستقبلًا</h3></article></div></div></section>
+    <section class="section pricing" aria-labelledby="pricing-title"><div class="container"><h2 id="pricing-title">استثمار واحد، وتنظيم مستمر</h2><div class="price-card"><span class="pricing-badge">دفع لمرة واحدة</span><p>رخصة استخدام لمرة واحدة</p><div class="price">4000 جنيه مصري</div><p>من غير أي اشتراك شهري</p><p class="vps-note"><strong>ملاحظة مهمة:</strong> لا توجد رسوم شهرية لعقار بوت. توجد فقط تكلفة تشغيل رمزية لخادم VPS الذي يعمل عليه الـ workflow، وتُدفع مباشرة لمزود الاستضافة.</p><a class="btn btn-primary" href="#demo-form">ابدأ دلوقتي</a></div></div></section>
+    <section class="section faq" aria-labelledby="faq-title"><div class="container"><div class="faq-heading"><span class="eyebrow">أسئلة شائعة</span><h2 id="faq-title">كل التفاصيل بوضوح</h2></div><div class="faq-list"><div class="faq-item"><button class="faq-question" type="button" aria-expanded="false">هل موظفيني هيحتاجوا تدريب؟<span aria-hidden="true">+</span></button><div class="faq-answer"><div><p>لأ، عقار بوت بيشتغل جوه تيليجرام نفسه، بنفس طريقة إرسال الرسائل المعتادة.</p></div></div></div><div class="faq-item"><button class="faq-question" type="button" aria-expanded="false">هل بيانات عملائي هتفضل سرية؟<span aria-hidden="true">+</span></button><div class="faq-answer"><div><p>أيوه، بياناتك بتتخزن في Google Sheets خاص بيك بس، ومفيش أي طرف تالت بيوصلها.</p></div></div></div><div class="faq-item"><button class="faq-question" type="button" aria-expanded="false">هل ده اشتراك شهري؟<span aria-hidden="true">+</span></button><div class="faq-answer"><div><p>لأ، رخصة استخدام لمرة واحدة بسعر 4000 جنيه فقط، من غير أي تكلفة متكررة.</p></div></div></div></div></div></section>
+    <section class="demo" id="demo-form" aria-labelledby="demo-title"><div class="container"><div class="demo-card"><div id="form-content"><header><span class="eyebrow">ديمو حي في ٥ دقايق</span><h2 id="demo-title">جرّب عقار بوت مجانًا</h2><p>ابعتلنا بياناتك وهنكلمك لحجز ديمو حي مدته 5 دقايق</p></header><form id="demo-booking-form" novalidate><input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><div class="form-grid"><div class="field"><label for="name">الاسم</label><input id="name" name="name" type="text" autocomplete="name" required><span class="error" id="name-error"></span></div><div class="field"><label for="office">اسم المكتب</label><input id="office" name="office" type="text" required><span class="error" id="office-error"></span></div><div class="field"><label for="phone">رقم الموبايل</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="01XXXXXXXXX" required><span class="error" id="phone-error"></span></div><div class="field"><label for="employees">عدد الموظفين</label><select id="employees" name="employees" required><option value="" selected disabled>اختر العدد</option><option>1-2</option><option>3-7</option><option>8-15</option><option>15+</option></select><span class="error" id="employees-error"></span></div></div><button class="btn btn-primary form-submit" type="submit">احجز الديمو</button><p class="form-note">بياناتك تستخدم للتواصل معك بخصوص الديمو فقط.</p></form></div><div class="form-success" id="form-success" role="status">تم استلام طلبك، هنتواصل معاك خلال 24 ساعة</div></div></div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><div><a class="logo-placeholder" href="#top"><img src="assets/aqar-bot-icon.png" alt="شعار عقار بوت"><span>عقار بوت</span></a><p class="footer-tagline">المساعد الذكي لمكاتب العقارات</p></div><div class="social-links"><a href="https://wa.me/201039805216" target="_blank" rel="noopener" aria-label="تواصل عبر واتساب"><svg class="icon"><use href="#icon-whatsapp"/></svg></a><a href="https://t.me/XXXXXXXXXX" target="_blank" rel="noopener" aria-label="تواصل عبر تيليجرام"><svg class="icon"><use href="#icon-telegram"/></svg></a></div><div><a class="footer-tagline" href="https://wa.me/201039805216" target="_blank" rel="noopener">واتساب: +20 103 980 5216</a><p class="copyright">© 2026 عقار بوت</p></div></div></footer>
+  <a class="whatsapp-fab" href="https://wa.me/201039805216" target="_blank" rel="noopener" aria-label="تواصل معنا مباشرة على واتساب"><svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"/></svg><span>واتساب</span></a>
+  <svg width="0" height="0" aria-hidden="true" style="position:absolute"><symbol id="icon-whatsapp" viewBox="0 0 24 24"><path d="M20 11.6a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.6Z"/><path d="M9 8.5c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.3.1.5-.1.7l-.5.6c.5 1 1.3 1.8 2.4 2.3l.6-.5c.2-.2.4-.2.7-.1l1.6.7c.3.1.4.3.4.5v.5c0 .3-.1.5-.5.7-.5.2-1.3.3-2.3-.1-1-.4-2.4-1.2-3.5-2.5-1.1-1.3-1.7-2.5-1.8-3.5-.1-1 .2-1.8.4-2.2Z"/></symbol><symbol id="icon-telegram" viewBox="0 0 24 24"><path d="m21 4-3 16-6-5-3 3 .5-4.5L17 7 7 12l-4-1.5L21 4Z"/></symbol><symbol id="icon-alert" viewBox="0 0 24 24"><path d="M12 3 2.8 20h18.4L12 3Z"/><path d="M12 9v4M12 17h.01"/></symbol><symbol id="icon-spark" viewBox="0 0 24 24"><path d="m12 3 1.4 5.6L19 10l-5.6 1.4L12 17l-1.4-5.6L5 10l5.6-1.4L12 3ZM19 16l.6 2.4L22 19l-2.4.6L19 22l-.6-2.4L16 19l2.4-.6L19 16Z"/></symbol><symbol id="icon-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></symbol><symbol id="icon-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/></symbol></svg>
+  <script>
+    // ضع رابط Webhook الخاص بـ Google Sheets هنا. اتركه فارغًا أثناء التجربة المحلية.
+    const FORM_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyKN7EL7HYGaXXA2B7vJXS907foNG7OCw_UtYZxzwwkSnPsXy4Ni733dNplC9hgUoeu/exec';
+    const form = document.getElementById('demo-booking-form');
+    const utmParams = ['utm_source', 'utm_medium', 'utm_campaign'];
+    const query = new URLSearchParams(window.location.search);
+    utmParams.forEach((key) => { form.elements[key].value = query.get(key) || ''; });
+    document.querySelectorAll('.faq-question').forEach((button) => button.addEventListener('click', () => button.setAttribute('aria-expanded', button.getAttribute('aria-expanded') !== 'true')));
+    function setError(field, message) { document.getElementById(field.id + '-error').textContent = message; }
+    function clearErrors() { form.querySelectorAll('.error').forEach((item) => item.textContent = ''); }
+    function isEgyptianPhone(value) { const digits = value.replace(/[\s()-]/g, ''); return /^(?:\+20|0020|0)1[0125]\d{8}$/.test(digits); }
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault(); clearErrors();
+      const name = form.elements.name, office = form.elements.office, phone = form.elements.phone, employees = form.elements.employees;
+      let valid = true;
+      if (!name.value.trim()) { setError(name, 'من فضلك اكتب الاسم.'); valid = false; }
+      if (!office.value.trim()) { setError(office, 'من فضلك اكتب اسم المكتب.'); valid = false; }
+      if (!isEgyptianPhone(phone.value)) { setError(phone, 'من فضلك اكتب رقم موبايل مصري صحيح.'); valid = false; }
+      if (!employees.value) { setError(employees, 'من فضلك اختر عدد الموظفين.'); valid = false; }
+      if (!valid) return;
+      const data = Object.fromEntries(new FormData(form).entries()); data.submitted_at = new Date().toISOString();
+      const submit = form.querySelector('[type="submit"]'); submit.disabled = true; submit.textContent = 'جارٍ الإرسال...';
+      try {
+        if (FORM_WEBHOOK_URL) await fetch(FORM_WEBHOOK_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data), mode:'no-cors' });
+        // عند تفعيل التحليلات: gtag('event', 'generate_lead', { ...data }); و fbq('track', 'Lead');
+        document.getElementById('form-content').classList.add('form-hidden'); document.getElementById('form-success').classList.add('visible');
+      } catch (error) { submit.disabled = false; submit.textContent = 'احجز الديمو'; alert('تعذر إرسال الطلب حاليًا. من فضلك حاول مرة أخرى.'); }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,6112 @@
+{
+  "name": "Aqar Bot",
+  "nodes": [
+    {
+      "parameters": {
+        "text": "={{ $json.text }}{{ $('AqarBot Massage').item.json.message.chat.id }}",
+        "attributes": {
+          "attributes": [
+            {
+              "name": "مدخل البيانات",
+              "description": "=علي حسب الCHAT ID \n7360251938 : مروان\nعادل :1159502847\nمستر ايهاب :6045127922\nنبيلة : 8809274409",
+              "required": true
+            },
+            {
+              "name": "اسم المالك",
+              "description": "اسم صاحب العقار ",
+              "required": true
+            },
+            {
+              "name": "رقم المالك",
+              "description": "رقم صاحب العقار ",
+              "required": true
+            },
+            {
+              "name": "نوع المالك",
+              "description": "مالك ام وسيط",
+              "required": true
+            },
+            {
+              "name": "المدينة",
+              "description": "احنا شغالين في عقارات مدينه المنصورة ",
+              "required": true
+            },
+            {
+              "name": "المنطقة",
+              "description": "توريل \nالمشاية\n (شرق وغرب) حي الجامعة\n شارع الجمهورية\n شارع الجيش \nالمختلط \nحي الأشجار\n جديلة \nعزبة الشال\n كفر البدماص\n قولنجيل\n ميت حدر\n سندوب\n حي الزعفران\n حي النخلة\n شارع الترعة\n شارع عبد السلام عارف\n حي شرق المنصورة \nحي غرب المنصورة \nمدينة السلام\n مدينة مبارك\n تقسيم الجامعة \nتقسيم خطاب\n حي الزهور\n حي الفردوس\nحي الأمل\nاعرف الشقه في اي منطقه منهم ",
+              "required": true
+            },
+            {
+              "name": "نوع الشارع",
+              "description": "رئيسي \\ جانبي\nعلى بعد امتار من شارع كذا اذا يكون النوع جانبي",
+              "required": true
+            },
+            {
+              "name": "العنوان ",
+              "description": "العنوان تفصيليا كما هو مكتوب",
+              "required": true
+            },
+            {
+              "name": "المساحة",
+              "type": "number",
+              "description": "مساحه العقار ",
+              "required": true
+            },
+            {
+              "name": "السعر بالمتر",
+              "type": "number",
+              "description": " سعر المتر غالبا ما يكون من الاف 10 الا 50 الف جنيه و هو يساوي القيمه الاجماليه مقسومه على المساحه",
+              "required": true
+            },
+            {
+              "name": "السعر الاجمالي",
+              "type": "number",
+              "description": "سعر العقار كاملا و بالتأكيد يجب ان يتجاوز ال300 الف ف احذر الخلط بينه و بين سعر المتر و وهو ناتج ضرب سعر المتر في المساحه",
+              "required": true
+            },
+            {
+              "name": "الدور ",
+              "type": "number",
+              "description": "الطابق ",
+              "required": true
+            },
+            {
+              "name": "عدد الغرف ",
+              "type": "number",
+              "description": "عدد الغرف",
+              "required": true
+            },
+            {
+              "name": "قطع الريسبشن",
+              "description": "احيانا يكتب ريسبشن 3 قطع و هكذا",
+              "required": true
+            },
+            {
+              "name": "حمامات",
+              "type": "number",
+              "description": "عدد الحمامات\n\nان لم يذكر يكون 1 ",
+              "required": true
+            },
+            {
+              "name": "مطابخ",
+              "type": "number",
+              "description": "عدد المطابخ\nان لم يذكر يكون 1 ",
+              "required": true
+            },
+            {
+              "name": "التشطيب ",
+              "description": "نوع التشطيب ",
+              "required": true
+            },
+            {
+              "name": "ملاحظات",
+              "description": "اي معلومات اضافيه مسجله ",
+              "required": true
+            },
+            {
+              "name": "IS_VALID ",
+              "type": "boolean",
+              "description": "حقول الزاميه",
+              "required": true
+            },
+            {
+              "name": "missing_fields",
+              "description": "اسماء الحقول الالزاميه المفقوده",
+              "required": true
+            },
+            {
+              "name": "ID",
+              "description": "اتركه فارغ",
+              "required": true
+            },
+            {
+              "name": "نوع العقار ",
+              "description": "نوع العقار اختر من :\n- شقق للبيع - شقق للايجار - محلات للبيع - محلات للايجار - فلل - بيوت - أراضي - مكاتب - مخازن - غير معروف",
+              "required": true
+            },
+            {
+              "name": "الايجار",
+              "type": "number",
+              "description": "ثمن الايجار",
+              "required": true
+            },
+            {
+              "name": "التامين",
+              "type": "number",
+              "description": "ثمن التأمين",
+              "required": true
+            },
+            {
+              "name": "نوع الارض",
+              "description": "استخرج نوع الأرض كما ذُكر (سكنية، زراعية، تجارية، صناعية، استثمارية، مختلطة...).",
+              "required": true
+            },
+            {
+              "name": "حالة الملكية",
+              "description": "استخرج حالة الملكية أو نوع المستندات (مسجل، عقد ابتدائي، توكيل، وضع يد، أو غير ذلك).",
+              "required": true
+            },
+            {
+              "name": "الاستخدام",
+              "description": "استخرج الاستخدام الحالي أو المسموح للأرض (سكني، تجاري، إداري، صناعي، زراعي، استثماري...).",
+              "required": true
+            },
+            {
+              "name": "الواجهة",
+              "description": "استخرج تفاصيل الواجهة، مثل اتجاهها (شمال، جنوب...) أو طولها إذا ذُكر.",
+              "required": true
+            },
+            {
+              "name": "عرض الشارع ",
+              "type": "number",
+              "description": "ستخرج عرض الشارع الذي تقع عليه الأرض بالمتر.",
+              "required": true
+            },
+            {
+              "name": "مساحة الأرض",
+              "description": "مساحه الارض للبيت و ليست المساحه المبنية",
+              "required": true
+            },
+            {
+              "name": "المساحة المبنية",
+              "description": "المساحه المبنيه للبيت و ليس مساحه الارض ",
+              "required": true
+            },
+            {
+              "name": "عدد الأدوار",
+              "description": "عدد ادوار البيت",
+              "required": true
+            },
+            {
+              "name": "نوع الفيلا ",
+              "description": "نوع الفيلا (منفصلة - توين هاوس - تاون هاوس - دوبلكس)",
+              "required": true
+            },
+            {
+              "name": "بيع | ايجار",
+              "description": "للبيع ام للأيجار"
+            },
+            {
+              "name": "مساحة الحديقة",
+              "description": "مساحه الحديقه للفلل",
+              "required": true
+            },
+            {
+              "name": "مساحة الروف",
+              "description": "مساحه روف الفلل",
+              "required": true
+            },
+            {
+              "name": "نوع الايجار",
+              "description": "نوع الايجار يومي -شهري - ريع سنوي - سنوي"
+            },
+            {
+              "name": "النشاط",
+              "description": "أداري \\ سكني",
+              "required": true
+            }
+          ]
+        },
+        "options": {
+          "systemPromptTemplate": "=أنت مساعد متخصص في استخراج بيانات العقارات من الرسائل العربية.\n\nمهمتك هي استخراج البيانات فقط بناءً على المعلومات الموجودة في الرسالة، ولا تخمن أي قيمة غير مذكورة.\n\nالقواعد:\n\n* إذا لم يتم ذكر أي حقل، اتركه فارغًا.\n* استخرج السعر كرقم فقط بدون كلمة \"جنيه\" أو \"مليون\".\n* إذا كان السعر مكتوبًا \"4 مليون\"، أعده كـ 4000000.\n* استخرج المساحة كرقم فقط.\n* استخرج عدد الغرف كرقم فقط.\n* استخرج الدور كما هو مذكور.\n* استخرج عرض الشارع بالأمتار كرقم فقط.\n* استخرج رقم المالك كما هو.\n* ضع أي معلومات إضافية في حقل \"ملاحظات\".\n* لا تضف أي شرح أو نص خارج الحقول المطلوبة.\n\nاعتبر البيانات التالية إلزامية:\n\n* العنوان\n* المساحة\n* السعر\n* رقم المالك\n\nإذا كانت جميع الحقول الإلزامية موجودة، اجعل:\nis_valid = true\n\nإذا كان أي منها مفقودًا، اجعل:\nis_valid = false\n\nوأضف أسماء الحقول الناقصة داخل:\nmissing_fields\n\nفي حقل مدخل البايانات حول ال CHAT ID الى اسم صاحبه \n7360251938 : مروان \n\n في حالات ان نوع العقار كان ايجار اكتب \"ليس متاح\" في السعر الاجمالي و سعر المتر  \nولا تنسى الحصول على قيمه الايجار\nو التامين"
+        }
+      },
+      "id": "9831220c-80f5-4769-95ac-a1e69ffa8cdc",
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "position": [
+        -608,
+        1312
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-3.1-flash-lite",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        -608,
+        1616
+      ],
+      "id": "0486da9d-dab0-4cae-842d-db0e5b7f548d",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "RfYtiMirCY3F4koM",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q",
+          "mode": "list",
+          "cachedResultName": "DATA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "name",
+          "value": "={{ $json.output['نوع العقار '] }}"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "رقم المالك",
+              "lookupValue": "={{ $json.output['رقم المالك'] }}"
+            },
+            {
+              "lookupColumn": "الدور ",
+              "lookupValue": "={{ $json.output['الدور '] }}"
+            },
+            {
+              "lookupColumn": "المساحة",
+              "lookupValue": "={{ $json.output['المساحة'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        832,
+        416
+      ],
+      "id": "23588474-d759-4983-9623-0af64af6875f",
+      "name": "Duplicate check",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5TEENfk0XwSolden",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('AqarBot Massage').item.json.message.chat.id }}",
+        "text": "\"الرجاء التأكد من احتواء الرساله على السعر و المساحه و العنوان و رقم المالك\"",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        656,
+        304
+      ],
+      "id": "5177641a-230c-4730-9d60-13d902037939",
+      "name": "Missing data",
+      "webhookId": "70ec846b-62d9-4027-adf1-1e188900fa47",
+      "credentials": {
+        "telegramApi": {
+          "id": "vAcSxBOvwMs1ZZyb",
+          "name": "AqarBot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('AqarBot Massage').item.json.message.from.id }}",
+        "text": "=\" الشقه دي موجوده من زمان و دا كودها  \" {{ $('Duplicate check').item.json.ID }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1296,
+        304
+      ],
+      "id": "cc205579-bfad-4aaf-b102-c41d45346e5a",
+      "name": "Duplicate found",
+      "webhookId": "70ec846b-62d9-4027-adf1-1e188900fa47",
+      "executeOnce": true,
+      "credentials": {
+        "telegramApi": {
+          "id": "vAcSxBOvwMs1ZZyb",
+          "name": "AqarBot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q",
+          "mode": "list",
+          "cachedResultName": "DATA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "={{ $json.output['نوع العقار '] }}",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID": "={{ $json.ID }}",
+            "مدخل البيانات": "={{ $json.output['مدخل البيانات'] }}",
+            "اسم المالك": "={{ $json.output['اسم المالك'] }}",
+            "رقم المالك": "={{ $json.output['رقم المالك'] }}",
+            "نوع المالك": "={{ $json.output['نوع المالك'] }}",
+            "المدينة": "={{ $json.output['المدينة'] }}",
+            "المنطقة": "={{ $json.output['المنطقة'] }}",
+            "نوع الشارع": "={{ $json.output['نوع الشارع'] }}",
+            "العنوان ": "={{ $json.output['العنوان '] }}",
+            "المساحة": "={{ $json.output['المساحة'] }}",
+            "السعر بالمتر": "={{ $json.output['السعر بالمتر'] }}",
+            "السعر الاجمالي": "={{ $json.output['السعر الاجمالي'] }}",
+            "الدور ": "={{ $json.output['الدور '] }}",
+            "عدد الغرف ": "={{ $json.output['عدد الغرف '] }}",
+            "قطع الريسبشن": "={{ $json.output['قطع الريسبشن'] }}",
+            "حمامات": "={{ $json.output['حمامات'] }}",
+            "التشطيب ": "={{ $json.output['التشطيب '] }}",
+            "ملاحظات": "={{ $json.output['ملاحظات'] }}",
+            "وقت الادخال": "={{ $now.toFormat('dd/MM/yyyy HH:mm:ss') }}",
+            "النشاط": "={{ $json.output['النشاط'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "كود قديم",
+              "displayName": "كود قديم",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "وقت الادخال",
+              "displayName": "وقت الادخال",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "مدخل البيانات",
+              "displayName": "مدخل البيانات",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "اسم المالك",
+              "displayName": "اسم المالك",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "رقم المالك",
+              "displayName": "رقم المالك",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "نوع المالك",
+              "displayName": "نوع المالك",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "المدينة",
+              "displayName": "المدينة",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "المنطقة",
+              "displayName": "المنطقة",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "نوع الشارع",
+              "displayName": "نوع الشارع",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "العنوان ",
+              "displayName": "العنوان ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "المساحة",
+              "displayName": "المساحة",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "السعر بالمتر",
+              "displayName": "السعر بالمتر",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "السعر الاجمالي",
+              "displayName": "السعر الاجمالي",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "الدور ",
+              "displayName": "الدور ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "عدد الغرف ",
+              "displayName": "عدد الغرف ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "قطع الريسبشن",
+              "displayName": "قطع الريسبشن",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "حمامات",
+              "displayName": "حمامات",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "التشطيب ",
+              "displayName": "التشطيب ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ملاحظات",
+              "displayName": "ملاحظات",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "النشاط",
+              "displayName": "النشاط",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "1a877f9e-7219-4b35-95b2-9fa4046e52e1",
+      "name": "Add Property",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        2016,
+        272
+      ],
+      "typeVersion": 4.5,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5TEENfk0XwSolden",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('AqarBot Massage').item.json.message.chat.id }}",
+        "text": "=   تمت الاضافه بنجاح .يرجى اضافة الصور الي الملف المسمى \"{{ $json.ID }}\" داخل الملف المسمى {{ $('Information Extractor').item.json.output['نوع العقار '] }}\n",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2240,
+        272
+      ],
+      "id": "4f2aaf98-ddef-409b-a59c-4585f0ed5d75",
+      "name": "Confirm Addition",
+      "webhookId": "70ec846b-62d9-4027-adf1-1e188900fa47",
+      "credentials": {
+        "telegramApi": {
+          "id": "vAcSxBOvwMs1ZZyb",
+          "name": "AqarBot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "b9defd42-687f-42b3-8927-23787d044bd8",
+              "leftValue": "={{ $json.output['المساحة'] }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "81eb9c2e-9afb-46c1-9aa7-dbf31c979624",
+              "leftValue": "={{ $json.output['المنطقة'] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "c96d127b-dff3-466e-bc1a-f40c1d46dc5d",
+              "leftValue": "={{ $json.output['السعر الاجمالي'] }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "673f7338-cc66-4799-9968-1ddaa7ab84e0",
+              "leftValue": "={{ $json.output['رقم المالك'] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        448,
+        432
+      ],
+      "id": "b11c78a5-4c2b-4fce-8d5d-dcfdcbf329df",
+      "name": "Validate Data"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "08e9c90d-3782-43b4-b7f3-42f96db0860e",
+              "leftValue": "={{ $json.ID }}",
+              "rightValue": "=",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1120,
+        416
+      ],
+      "id": "8404939c-7c06-4be7-b770-6a973188edfb",
+      "name": "Row Status",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('AqarBot Massage').item.json.message.text }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "= أنت مساعد متخصص في تجهيز بيانات العقارات قبل مرحلة استخراج المعلومات (Information Extraction).\n\nسيتم إعطاؤك رسالة تحتوي على بيانات عقار مكتوبة بأي شكل (عامية، فصحى، مختصرة، أو غير مرتبة).\n\nمهمتك هي:\n1. قراءة الرسالة بالكامل.\n2. استخراج البيانات الموجودة فقط.\n3. لا تستنتج أي معلومة غير مذكورة صراحة.\n4. إذا لم تجد قيمة أي حقل، اتركها فارغة \"\".\n5. لا تكتب \"غير معروف\" أو \"غير متوفر\".\n6. لا تضف أي شرح أو تعليق.\n7. أعد النتيجة بصيغة JSON صحيحة فقط.\n\n\nاستخدم المفاتيح التالية فقط لو شقه:\n\n{\n  \"ID\": \"\",\n  \"مدخل البيانات\": \"\",\n  \"اسم المالك\": \"\",\n  \"رقم المالك\": \"\",\n  \"نوع المالك\": \"\",\n  \"المدينة\": \"\",\n  \"المنطقة\": \"\",\n  \"نوع الشارع\": \"\",\n  \"العنوان\": \"\",\n  \"المساحة\": \"\",\n  \"السعر بالمتر\": \"\",\n  \"السعر الاجمالي\": \"\",\n  \"الدور\": \"\",\n  \"عدد الغرف\": \"\",\n  \"قطع الريسبشن\": \"\",\n  \"حمامات\": \"\",\n  \"مطابخ\": \"\",\n  \"التشطيب\": \"\",\n  \"ملاحظات\": \"\",\n   \"نوع العقار\": \"\"\n}\nلو نوع العقار اراضي محتاجك تجيبلي دول :\nمدخل البيانات\tاسم المالك\tرقم المالك\tنوع المالك\tالمدينة\tالمنطقة\tالعنوان \tالمساحة\tالسعر بالمتر\tالسعر الاجمالي\tنوع الارض\tحالة الملكية\tالاستخدام\tالواجهة\tعرض الشارع \tطريقة الدفع\t  نوع العقار ملاحظات\n\nلو نوع العقار بيوت محتاج اعرف :\nمدخل البيانات\tاسم المالك\tرقم المالك\tنوع المالك\tالمدينة\tالمنطقة\tنوع الشارع\tالعنوان \tمساحة الأرض\tالمساحة المبنية\tعدد الأدوار\tالتشطيب\tواجهة\tسعر البيع\tملاحظات\n\nلو نوع العقار فلل محتاج اعرف :\nمدخل البيانات\tاسم المالك\tرقم المالك\tنوع المالك\tنوع الفيلا \tبيع | ايجار\tالمدينة\tالمنطقة\tنوع الشارع\tالعنوان \tمساحة الأرض\tالمساحة المبنية\tمساحة الحديقة\tمساحة الروف\tعدد الأدوار\tالتشطيب\tنوع الايجار\tسعر الايجار\tواجهة\tسعر البيع\tالسعر بالمتر\tعدد الغرف \tقطع الريسبشن\tحمامات\tمطابخ\tملاحظات\t\t\n\n\nقواعد إضافية:\n\n- احتفظ بالأرقام كما هي بدون تغيير.\n- إذا كان السعر مكتوبًا بالمليون أو الألف، اتركه كما هو مكتوب.\n- إذا ذُكر السعر الإجمالي فقط، اترك \"السعر بالمتر\" فارغًا.\n- إذا ذُكر سعر المتر فقط، اترك \"السعر الاجمالي\" فارغًا.\n- لا تحسب أي قيمة.\n- إذا وُجد أكثر من رقم هاتف، اختر رقم المالك فقط إن كان واضحًا، وإلا ضع أول رقم.\n- إذا كان اسم المالك غير موجود فاتركه فارغًا.\n- إذا لم يكن نوع المالك مذكورًا فاتركه فارغًا.\n- أي معلومات لا تنتمي للحقول السابقة ضعها داخل \"ملاحظات\".\n\nالرسالة:\n\n{{ $json.message }}\nأنواع العقارات المسموح بها فقط:  - شقق للبيع - شقق للايجار - محلات للبيع - محلات للايجار - فلل - بيوت - أراضي - مكاتب - مخازن - غير معروف\n\nلو مكتوب برج خلي نوع العقار بيوت \nطلع نوع العقار بنفس الصيغه الل انا كاتبهالك دي \nمثال :لا تكتب شقه للايجار ,اكتب شقق للايجار\n\nالعيادات و المطاعم و الاستديوهات و ما شابه يعتبر نوع العقار محلات و استنتج للبيع ان للايجار\nالعمارات و الابراج و البيوت هم نوع العقار بيوت"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        -1168,
+        1312
+      ],
+      "id": "b049daa2-63e4-4e53-b8e4-f71ec07a00ee",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-3.1-flash-lite",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        -1008,
+        1664
+      ],
+      "id": "8a2fde42-a93a-4cf2-bace-10d2a483e71a",
+      "name": "Google Gemini Chat Model1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "RfYtiMirCY3F4koM",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q",
+          "mode": "list",
+          "cachedResultName": "DATA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "={{ $('Validate Data').item.json.output['نوع العقار '] }}",
+          "mode": "name"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1616,
+        272
+      ],
+      "id": "aa51eefb-9347-4f36-893e-b65fc0e306c9",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5TEENfk0XwSolden",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// اقرأ جميع الصفوف القادمة من Google Sheets\nconst rows = $input.all();\n\nlet maxId = 0;\n\nfor (const row of rows) {\n  // غير \"ID\" لو اسم العمود عندك مختلف\n  const id = row.json.ID;\n\n  if (!id) continue;\n\n  // يستخرج الرقم من ID مثل MN-000123 => 123\n  const match = String(id).match(/\\d+/);\n\n  if (!match) continue;\n\n  const number = parseInt(match[0], 10);\n\n  if (number > maxId) {\n    maxId = number;\n  }\n}\n\nconst newId = \"MN-\" + String(maxId + 1).padStart(1, \"0\");\n\n// خذ بيانات العقار من النود السابقة (عدل الاسم لو مختلف)\nconst property = $('Validate Data').first().json;\n\nreturn [\n  {\n    json: {\n      ...property,\n      ID: newId\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1808,
+        272
+      ],
+      "id": "75e11e04-2ab8-4165-8bdc-42867ad727ee",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Validate Data').item.json.output['نوع العقار '] }}",
+                    "rightValue": "شقق للبيع",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "ebff716b-89d2-44c6-bb1e-afd05a8016ae"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "dd16931f-d8f5-4c70-ab54-85f9280f0beb",
+                    "leftValue": "={{ $('Validate Data').item.json.output['نوع العقار '] }}",
+                    "rightValue": "شقق للايجار",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        1440,
+        432
+      ],
+      "id": "3e3d2fb4-8331-4b89-8c74-567df5635013",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q",
+          "mode": "list",
+          "cachedResultName": "DATA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "={{ $json.output['نوع العقار '] }}",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID": "={{ $json.ID }}",
+            "وقت الادخال": "={{ $now.toFormat('dd/MM/yyyy HH:mm:ss') }}",
+            "مدخل البيانات": "={{ $json.output['مدخل البيانات'] }}",
+            "اسم المالك": "={{ $json.output['اسم المالك'] }}",
+            "رقم المالك": "={{ $json.output['رقم المالك'] }}",
+            "نوع المالك": "={{ $json.output['نوع المالك'] }}",
+            "المدينة": "={{ $json.output['المدينة'] }}",
+            "المنطقة": "={{ $json.output['المنطقة'] }}",
+            "نوع الشارع": "={{ $json.output['نوع الشارع'] }}",
+            "العنوان ": "={{ $json.output['العنوان '] }}",
+            "المساحة": "={{ $json.output['المساحة'] }}",
+            "الدور ": "={{ $json.output['الدور '] }}",
+            "عدد الغرف ": "={{ $json.output['عدد الغرف '] }}",
+            "قطع الريسبشن": "={{ $json.output['قطع الريسبشن'] }}",
+            "حمامات": "={{ $json.output['حمامات'] }}",
+            "مطابخ": "={{ $json.output['مطابخ'] }}",
+            "التشطيب ": "={{ $json.output['التشطيب '] }}",
+            "ملاحظات": "={{ $json.output['ملاحظات'] }}",
+            "الايجار": "={{ $json.output['الايجار'] }}",
+            "التامين": "={{ $json.output['التامين'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "كود قديم",
+              "displayName": "كود قديم",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "وقت الادخال",
+              "displayName": "وقت الادخال",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "مدخل البيانات",
+              "displayName": "مدخل البيانات",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "اسم المالك",
+              "displayName": "اسم المالك",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "رقم المالك",
+              "displayName": "رقم المالك",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "نوع المالك",
+              "displayName": "نوع المالك",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "المدينة",
+              "displayName": "المدينة",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "المنطقة",
+              "displayName": "المنطقة",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "نوع الشارع",
+              "displayName": "نوع الشارع",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "العنوان ",
+              "displayName": "العنوان ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "المساحة",
+              "displayName": "المساحة",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "الدور ",
+              "displayName": "الدور ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "عدد الغرف ",
+              "displayName": "عدد الغرف ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "قطع الريسبشن",
+              "displayName": "قطع الريسبشن",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "حمامات",
+              "displayName": "حمامات",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "مطابخ",
+              "displayName": "مطابخ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "التشطيب ",
+              "displayName": "التشطيب ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ملاحظات",
+              "displayName": "ملاحظات",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "الايجار",
+              "displayName": "الايجار",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "التامين",
+              "displayName": "التامين",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "7c4413b8-f9f7-4f06-8a1f-f1939f06dc1e",
+      "name": "Add Property1",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        2016,
+        496
+      ],
+      "typeVersion": 4.5,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5TEENfk0XwSolden",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('AqarBot Massage').item.json.message.chat.id }}",
+        "text": "=   تمت الاضافه بنجاح .يرجى اضافة الصور الي الملف المسمى \"{{ $json.ID }}\" داخل الملف المسمى {{ $('Information Extractor').item.json.output['نوع العقار '] }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2240,
+        496
+      ],
+      "id": "93ee0c20-db99-4cd2-b82b-32092b2ac30c",
+      "name": "Confirm Addition1",
+      "webhookId": "70ec846b-62d9-4027-adf1-1e188900fa47",
+      "credentials": {
+        "telegramApi": {
+          "id": "vAcSxBOvwMs1ZZyb",
+          "name": "AqarBot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q",
+          "mode": "list",
+          "cachedResultName": "DATA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "={{ $('Validate Data').item.json.output['نوع العقار '] }}",
+          "mode": "name"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1616,
+        496
+      ],
+      "id": "feb05a0c-c546-4868-8a50-9cd9959b48b4",
+      "name": "Get row(s) in sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5TEENfk0XwSolden",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// اقرأ جميع الصفوف القادمة من Google Sheets\nconst rows = $input.all();\n\nlet maxId = 0;\n\nfor (const row of rows) {\n  // غير \"ID\" لو اسم العمود عندك مختلف\n  const id = row.json.ID;\n\n  if (!id) continue;\n\n  // يستخرج الرقم من ID مثل MN-000123 => 123\n  const match = String(id).match(/\\d+/);\n\n  if (!match) continue;\n\n  const number = parseInt(match[0], 10);\n\n  if (number > maxId) {\n    maxId = number;\n  }\n}\n\nconst newId = \"RT-\" + String(maxId + 1).padStart(1, \"0\");\n\n// خذ بيانات العقار من النود السابقة (عدل الاسم لو مختلف)\nconst property = $('Validate Data').first().json;\n\nreturn [\n  {\n    json: {\n      ...property,\n      ID: newId\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1808,
+        496
+      ],
+      "id": "49d51acf-a560-4f57-912f-1a0ef9e37001",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.output['نوع العقار '] }}",
+                    "rightValue": "شقق للايجار",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "2daf21f6-ceef-4d2c-8cc2-44b7557b922c"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "6b911db6-f66b-463d-b138-ddba2d008c2a",
+                    "leftValue": "={{ $json.output['نوع العقار '] }}",
+                    "rightValue": "شقق للبيع",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "59e1232f-ee30-4aff-b573-1fcce775e126",
+                    "leftValue": "={{ $json.output['نوع العقار '] }}",
+                    "rightValue": "أراضي",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "ab0fad1e-ac5a-4e93-a461-d5a7d0cf1a5a",
+                    "leftValue": "={{ $json.output['نوع العقار '] }}",
+                    "rightValue": "محلات للبيع",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "1aadf44b-544a-455f-8d38-fd7a5547a407",
+                    "leftValue": "={{ $json.output['نوع العقار '] }}",
+                    "rightValue": "محلات للايجار",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "eeb5fa53-8f05-446d-819a-3cbc6073f49e",
+                    "leftValue": "={{ $json.output['نوع العقار '] }}",
+                    "rightValue": "بيوت",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "182c8785-eb20-4d9a-80d9-b4cfb5bf063d",
+                    "leftValue": "={{ $json.output['نوع العقار '] }}",
+                    "rightValue": "فلل",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -192,
+        1296
+      ],
+      "id": "e1d11ccd-5f03-49e2-b056-e0a5e5ec16b3",
+      "name": "3qar type"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q",
+          "mode": "list",
+          "cachedResultName": "DATA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "name",
+          "value": "={{ $json.output['نوع العقار '] }}"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "رقم المالك",
+              "lookupValue": "={{ $json.output['رقم المالك'] }}"
+            },
+            {
+              "lookupColumn": "المساحة",
+              "lookupValue": "={{ $json.output['المساحة'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        720,
+        928
+      ],
+      "id": "da695aed-a116-48f0-be3e-a3e84a6a16b8",
+      "name": "Duplicate check1",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5TEENfk0XwSolden",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('AqarBot Massage').item.json.message.chat.id }}",
+        "text": "\"الرجاء التأكد من احتواء الرساله على السعر و المساحه و العنوان و رقم المالك\"",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        544,
+        800
+      ],
+      "id": "ae24eccc-bb02-4d13-936e-0ad806780991",
+      "name": "Missing data1",
+      "webhookId": "70ec846b-62d9-4027-adf1-1e188900fa47",
+      "credentials": {
+        "telegramApi": {
+          "id": "vAcSxBOvwMs1ZZyb",
+          "name": "AqarBot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('AqarBot Massage').item.json.message.from.id }}",
+        "text": "\"الأرض دي مضافه قبل كدا\"",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1232,
+        832
+      ],
+      "id": "566a4af5-5bce-4368-b983-07a2de56e46c",
+      "name": "Duplicate found1",
+      "webhookId": "70ec846b-62d9-4027-adf1-1e188900fa47",
+      "executeOnce": true,
+      "credentials": {
+        "telegramApi": {
+          "id": "vAcSxBOvwMs1ZZyb",
+          "name": "AqarBot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q",
+          "mode": "list",
+          "cachedResultName": "DATA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "={{ $json.output['نوع العقار '] }}",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID": "={{ $json.ID }}",
+            "مدخل البيانات": "={{ $json.output['مدخل البيانات'] }}",
+            "اسم المالك": "={{ $json.output['اسم المالك'] }}",
+            "رقم المالك": "={{ $json.output['رقم المالك'] }}",
+            "نوع المالك": "={{ $json.output['نوع المالك'] }}",
+            "المدينة": "={{ $json.output['المدينة'] }}",
+            "المنطقة": "={{ $json.output['المنطقة'] }}",
+            "العنوان ": "={{ $json.output['العنوان '] }}",
+            "المساحة": "={{ $json.output['المساحة'] }}",
+            "السعر بالمتر": "={{ $json.output['السعر بالمتر'] }}",
+            "السعر الاجمالي": "={{ $json.output['السعر الاجمالي'] }}",
+            "ملاحظات": "={{ $json.output['ملاحظات'] }}",
+            "نوع الارض": "={{ $json.output['نوع الارض'] }}",
+            "حالة الملكية": "={{ $json.output['حالة الملكية'] }}",
+            "الاستخدام": "={{ $json.output['الاستخدام'] }}",
+            "الواجهة": "={{ $json.output['الواجهة'] }}",
+            "عرض الشارع ": "={{ $json.output['عرض الشارع '] }}",
+            "وقت الادخال": "={{ $now.toFormat('dd/MM/yyyy HH:mm:ss') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "كود قديم",
+              "displayName": "كود قديم",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "وقت الادخال",
+              "displayName": "وقت الادخال",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "مدخل البيانات",
+              "displayName": "مدخل البيانات",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "اسم المالك",
+              "displayName": "اسم المالك",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "رقم المالك",
+              "displayName": "رقم المالك",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "نوع المالك",
+              "displayName": "نوع المالك",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "المدينة",
+              "displayName": "المدينة",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "المنطقة",
+              "displayName": "المنطقة",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "العنوان ",
+              "displayName": "العنوان ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "المساحة",
+              "displayName": "المساحة",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "السعر بالمتر",
+              "displayName": "السعر بالمتر",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "السعر الاجمالي",
+              "displayName": "السعر الاجمالي",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "نوع الارض",
+              "displayName": "نوع الارض",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "حالة الملكية",
+              "displayName": "حالة الملكية",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "الاستخدام",
+              "displayName": "الاستخدام",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "الواجهة",
+              "displayName": "الواجهة",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "عرض الشارع ",
+              "displayName": "عرض الشارع ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ملاحظات",
+              "displayName": "ملاحظات",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "eccf9c61-738d-45a4-8d63-2174d1614733",
+      "name": "Add Property2",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        1984,
+        944
+      ],
+      "typeVersion": 4.5,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5TEENfk0XwSolden",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('AqarBot Massage').item.json.message.chat.id }}",
+        "text": "=   تمت الاضافه بنجاح .يرجى اضافة الصور الي الملف المسمى \"{{ $json.ID }}\" داخل الملف المسمى {{ $('Information Extractor').item.json.output['نوع العقار '] }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2240,
+        944
+      ],
+      "id": "e86c930b-c816-4189-a36a-5fe60b788a8a",
+      "name": "Confirm Addition2",
+      "webhookId": "70ec846b-62d9-4027-adf1-1e188900fa47",
+      "credentials": {
+        "telegramApi": {
+          "id": "vAcSxBOvwMs1ZZyb",
+          "name": "AqarBot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "b9defd42-687f-42b3-8927-23787d044bd8",
+              "leftValue": "={{ $json.output['المساحة'] }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "81eb9c2e-9afb-46c1-9aa7-dbf31c979624",
+              "leftValue": "={{ $json.output['العنوان '] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "c96d127b-dff3-466e-bc1a-f40c1d46dc5d",
+              "leftValue": "={{ $json.output['السعر الاجمالي'] }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "673f7338-cc66-4799-9968-1ddaa7ab84e0",
+              "leftValue": "={{ $json.output['رقم المالك'] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        368,
+        944
+      ],
+      "id": "5cdb1509-e54a-4151-b489-ae89e2865e46",
+      "name": "Validate Data1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "08e9c90d-3782-43b4-b7f3-42f96db0860e",
+              "leftValue": "={{ $json.row_number }}",
+              "rightValue": "=",
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        976,
+        928
+      ],
+      "id": "f27299c8-4746-4889-a207-a6ddeca4e8b4",
+      "name": "Row Status1",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q",
+          "mode": "list",
+          "cachedResultName": "DATA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "={{ $('Validate Data1').item.json.output['نوع العقار '] }}",
+          "mode": "name"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1440,
+        944
+      ],
+      "id": "752b5d0b-528d-4315-b950-67251072291f",
+      "name": "Get row(s) in sheet2",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5TEENfk0XwSolden",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// اقرأ جميع الصفوف القادمة من Google Sheets\nconst rows = $input.all();\n\nlet maxId = 0;\n\nfor (const row of rows) {\n  // غير \"ID\" لو اسم العمود عندك مختلف\n  const id = row.json.ID;\n\n  if (!id) continue;\n\n  // يستخرج الرقم من ID مثل MN-000123 => 123\n  const match = String(id).match(/\\d+/);\n\n  if (!match) continue;\n\n  const number = parseInt(match[0], 10);\n\n  if (number > maxId) {\n    maxId = number;\n  }\n}\n\nconst newId = \"AR-\" + String(maxId + 1).padStart(1, \"0\");\n\n// خذ بيانات العقار من النود السابقة (عدل الاسم لو مختلف)\nconst property = $('Validate Data1').first().json;\n\nreturn [\n  {\n    json: {\n      ...property,\n      ID: newId\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1744,
+        944
+      ],
+      "id": "54fe55ef-0cf1-4285-8de5-79b5e1c5ef5e",
+      "name": "Code in JavaScript2"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q",
+          "mode": "list",
+          "cachedResultName": "DATA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "name",
+          "value": "={{ $json.output['نوع العقار '] }}"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "رقم المالك",
+              "lookupValue": "={{ $json.output['رقم المالك'] }}"
+            },
+            {
+              "lookupColumn": "المساحة",
+              "lookupValue": "={{ $json.output['المساحة'] }}"
+            },
+            {
+              "lookupColumn": "الايجار",
+              "lookupValue": "={{ $json.output['الايجار'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        752,
+        1392
+      ],
+      "id": "76d0fcb8-e1c6-406b-846a-b7786e897813",
+      "name": "Duplicate check2",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5TEENfk0XwSolden",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('AqarBot Massage').item.json.message.chat.id }}",
+        "text": "\"الرجاء التأكد من احتواء الرساله على السعر و المساحه و العنوان و رقم المالك\"",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        576,
+        1280
+      ],
+      "id": "ea0b8cdb-5244-4868-8551-d5e5dd2bfe60",
+      "name": "Missing data2",
+      "webhookId": "70ec846b-62d9-4027-adf1-1e188900fa47",
+      "credentials": {
+        "telegramApi": {
+          "id": "vAcSxBOvwMs1ZZyb",
+          "name": "AqarBot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('AqarBot Massage').item.json.message.from.id }}",
+        "text": "\"المحل دا متضاف من زمان \"",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1216,
+        1280
+      ],
+      "id": "49ee11fd-fb54-4b38-9706-c8d8aa7a95eb",
+      "name": "Duplicate found2",
+      "webhookId": "70ec846b-62d9-4027-adf1-1e188900fa47",
+      "executeOnce": true,
+      "credentials": {
+        "telegramApi": {
+          "id": "vAcSxBOvwMs1ZZyb",
+          "name": "AqarBot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q",
+          "mode": "list",
+          "cachedResultName": "DATA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "={{ $json.output['نوع العقار '] }}",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID": "={{ $json.ID }}",
+            "مدخل البيانات": "={{ $json.output['مدخل البيانات'] }}",
+            "اسم المالك": "={{ $json.output['اسم المالك'] }}",
+            "رقم المالك": "={{ $json.output['رقم المالك'] }}",
+            "نوع المالك": "={{ $json.output['نوع المالك'] }}",
+            "المدينة": "={{ $json.output['المدينة'] }}",
+            "المنطقة": "={{ $json.output['المنطقة'] }}",
+            "نوع الشارع": "={{ $json.output['نوع الشارع'] }}",
+            "العنوان ": "={{ $json.output['العنوان '] }}",
+            "المساحة": "={{ $json.output['المساحة'] }}",
+            "السعر بالمتر": "={{ $json.output['السعر بالمتر'] }}",
+            "السعر الاجمالي": "={{ $json.output['السعر الاجمالي'] }}",
+            "التشطيب ": "={{ $json.output['التشطيب '] }}",
+            "ملاحظات": "={{ $json.output['ملاحظات'] }}",
+            "وقت الادخال": "={{ $now.toFormat('dd/MM/yyyy HH:mm:ss') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "كود قديم",
+              "displayName": "كود قديم",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "وقت الادخال",
+              "displayName": "وقت الادخال",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "مدخل البيانات",
+              "displayName": "مدخل البيانات",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "اسم المالك",
+              "displayName": "اسم المالك",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "رقم المالك",
+              "displayName": "رقم المالك",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "نوع المالك",
+              "displayName": "نوع المالك",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "المدينة",
+              "displayName": "المدينة",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "المنطقة",
+              "displayName": "المنطقة",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "نوع الشارع",
+              "displayName": "نوع الشارع",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "العنوان ",
+              "displayName": "العنوان ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "المساحة",
+              "displayName": "المساحة",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "السعر بالمتر",
+              "displayName": "السعر بالمتر",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "السعر الاجمالي",
+              "displayName": "السعر الاجمالي",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "التشطيب ",
+              "displayName": "التشطيب ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ملاحظات",
+              "displayName": "ملاحظات",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "246a0cf4-fe88-4db9-9803-a88914d86fc2",
+      "name": "Add Property3",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        1936,
+        1248
+      ],
+      "typeVersion": 4.5,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5TEENfk0XwSolden",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('AqarBot Massage').item.json.message.chat.id }}",
+        "text": "=   تمت الاضافه بنجاح .يرجى اضافة الصور الي الملف المسمى \"{{ $json.ID }}\" داخل الملف المسمى {{ $('Information Extractor').item.json.output['نوع العقار '] }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2256,
+        1248
+      ],
+      "id": "2b134d0e-38ca-49fc-a75c-d82b9e247dc6",
+      "name": "Confirm Addition3",
+      "webhookId": "70ec846b-62d9-4027-adf1-1e188900fa47",
+      "credentials": {
+        "telegramApi": {
+          "id": "vAcSxBOvwMs1ZZyb",
+          "name": "AqarBot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "b9defd42-687f-42b3-8927-23787d044bd8",
+              "leftValue": "={{ $json.output['المساحة'] }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "81eb9c2e-9afb-46c1-9aa7-dbf31c979624",
+              "leftValue": "={{ $json.output['نوع العقار '] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "673f7338-cc66-4799-9968-1ddaa7ab84e0",
+              "leftValue": "={{ $json.output['رقم المالك'] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        368,
+        1408
+      ],
+      "id": "c100af3f-668f-46de-9f82-2fdab5b78c89",
+      "name": "Validate Data2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "08e9c90d-3782-43b4-b7f3-42f96db0860e",
+              "leftValue": "={{ $json.row_number }}",
+              "rightValue": "=",
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1040,
+        1392
+      ],
+      "id": "2ae3b8b4-976d-4392-9426-a7328350e645",
+      "name": "Row Status2",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q",
+          "mode": "list",
+          "cachedResultName": "DATA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "={{ $('Validate Data2').item.json.output['نوع العقار '] }}",
+          "mode": "name"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1536,
+        1248
+      ],
+      "id": "6fd40511-a124-4d33-a890-8370b49f790a",
+      "name": "Get row(s) in sheet3",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5TEENfk0XwSolden",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// اقرأ جميع الصفوف القادمة من Google Sheets\nconst rows = $input.all();\n\nlet maxId = 0;\n\nfor (const row of rows) {\n  // غير \"ID\" لو اسم العمود عندك مختلف\n  const id = row.json.ID;\n\n  if (!id) continue;\n\n  // يستخرج الرقم من ID مثل MN-000123 => 123\n  const match = String(id).match(/\\d+/);\n\n  if (!match) continue;\n\n  const number = parseInt(match[0], 10);\n\n  if (number > maxId) {\n    maxId = number;\n  }\n}\n\nconst newId = \"SH-\" + String(maxId + 1).padStart(1, \"0\");\n\n// خذ بيانات العقار من النود السابقة (عدل الاسم لو مختلف)\nconst property = $('Validate Data2').first().json;\n\nreturn [\n  {\n    json: {\n      ...property,\n      ID: newId\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1728,
+        1248
+      ],
+      "id": "f30e2641-9f7e-47ef-80d4-e25d124a79d4",
+      "name": "Code in JavaScript3"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Validate Data2').item.json.output['نوع العقار '] }}",
+                    "rightValue": "محلات للبيع",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "ebff716b-89d2-44c6-bb1e-afd05a8016ae"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "dd16931f-d8f5-4c70-ab54-85f9280f0beb",
+                    "leftValue": "={{ $('Validate Data2').item.json.output['نوع العقار '] }}",
+                    "rightValue": "محلات للايجار",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        1360,
+        1408
+      ],
+      "id": "9dd78c3b-56ad-43be-857c-4a126cb0f788",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q",
+          "mode": "list",
+          "cachedResultName": "DATA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "={{ $json.output['نوع العقار '] }}",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID": "={{ $json.ID }}",
+            "مدخل البيانات": "={{ $json.output['مدخل البيانات'] }}",
+            "اسم المالك": "={{ $json.output['اسم المالك'] }}",
+            "رقم المالك": "={{ $json.output['رقم المالك'] }}",
+            "نوع المالك": "={{ $json.output['نوع المالك'] }}",
+            "المدينة": "={{ $json.output['المدينة'] }}",
+            "المنطقة": "={{ $json.output['المنطقة'] }}",
+            "نوع الشارع": "={{ $json.output['نوع الشارع'] }}",
+            "العنوان ": "={{ $json.output['العنوان '] }}",
+            "المساحة": "={{ $json.output['المساحة'] }}",
+            "التشطيب ": "={{ $json.output['التشطيب '] }}",
+            "ملاحظات": "={{ $json.output['ملاحظات'] }}",
+            "الايجار": "={{ $json.output['الايجار'] }}",
+            "التامين": "={{ $json.output['التامين'] }}",
+            "وقت الادخال": "= {{ $now.toFormat('dd/MM/yyyy HH:mm:ss') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "كود قديم",
+              "displayName": "كود قديم",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "وقت الادخال",
+              "displayName": "وقت الادخال",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "مدخل البيانات",
+              "displayName": "مدخل البيانات",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "اسم المالك",
+              "displayName": "اسم المالك",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "رقم المالك",
+              "displayName": "رقم المالك",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "نوع المالك",
+              "displayName": "نوع المالك",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "المدينة",
+              "displayName": "المدينة",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "المنطقة",
+              "displayName": "المنطقة",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "نوع الشارع",
+              "displayName": "نوع الشارع",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "العنوان ",
+              "displayName": "العنوان ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "المساحة",
+              "displayName": "المساحة",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "التشطيب ",
+              "displayName": "التشطيب ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ملاحظات",
+              "displayName": "ملاحظات",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "الايجار",
+              "displayName": "الايجار",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "التامين",
+              "displayName": "التامين",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "83a267d6-4551-400a-a627-08a4430c7075",
+      "name": "Add Property4",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        1936,
+        1472
+      ],
+      "typeVersion": 4.5,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5TEENfk0XwSolden",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('AqarBot Massage').item.json.message.chat.id }}",
+        "text": "=   تمت الاضافه بنجاح .يرجى اضافة الصور الي الملف المسمى \"{{ $json.ID }}\" داخل الملف المسمى {{ $('Information Extractor').item.json.output['نوع العقار '] }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2256,
+        1472
+      ],
+      "id": "cf5b696e-1be6-412d-8da4-bc09ec2160e1",
+      "name": "Confirm Addition4",
+      "webhookId": "70ec846b-62d9-4027-adf1-1e188900fa47",
+      "credentials": {
+        "telegramApi": {
+          "id": "vAcSxBOvwMs1ZZyb",
+          "name": "AqarBot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q",
+          "mode": "list",
+          "cachedResultName": "DATA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "={{ $('Validate Data2').item.json.output['نوع العقار '] }}",
+          "mode": "name"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1536,
+        1472
+      ],
+      "id": "eb6ccda3-4c8e-41c7-81b1-f33a3d8ba83f",
+      "name": "Get row(s) in sheet4",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5TEENfk0XwSolden",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// اقرأ جميع الصفوف القادمة من Google Sheets\nconst rows = $input.all();\n\nlet maxId = 0;\n\nfor (const row of rows) {\n  // غير \"ID\" لو اسم العمود عندك مختلف\n  const id = row.json.ID;\n\n  if (!id) continue;\n\n  // يستخرج الرقم من ID مثل MN-000123 => 123\n  const match = String(id).match(/\\d+/);\n\n  if (!match) continue;\n\n  const number = parseInt(match[0], 10);\n\n  if (number > maxId) {\n    maxId = number;\n  }\n}\n\nconst newId = \"RS-\" + String(maxId + 1).padStart(1, \"0\");\n\n// خذ بيانات العقار من النود السابقة (عدل الاسم لو مختلف)\nconst property = $('Validate Data2').first().json;\n\nreturn [\n  {\n    json: {\n      ...property,\n      ID: newId\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1728,
+        1472
+      ],
+      "id": "fb09da00-8723-45cd-bfea-2a3f97d378fa",
+      "name": "Code in JavaScript4"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q",
+          "mode": "list",
+          "cachedResultName": "DATA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "name",
+          "value": "={{ $json.output['نوع العقار '] }}"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "رقم المالك",
+              "lookupValue": "={{ $json.output['رقم المالك'] }}"
+            },
+            {
+              "lookupColumn": "مساحة الأرض",
+              "lookupValue": "={{ $json.output['مساحة الأرض'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        720,
+        1952
+      ],
+      "id": "2f7bdfd3-27e6-4a13-8223-3333992a5285",
+      "name": "Duplicate check3",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5TEENfk0XwSolden",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('AqarBot Massage').item.json.message.chat.id }}",
+        "text": "\"الرجاء التأكد من احتواء الرساله على السعر و المساحه و العنوان و رقم المالك\"",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        544,
+        1824
+      ],
+      "id": "3f2f20dd-2834-4263-b2a3-0ca9c5eb03b7",
+      "name": "Missing data3",
+      "webhookId": "70ec846b-62d9-4027-adf1-1e188900fa47",
+      "credentials": {
+        "telegramApi": {
+          "id": "vAcSxBOvwMs1ZZyb",
+          "name": "AqarBot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('AqarBot Massage').item.json.message.from.id }}",
+        "text": "\"البيت دا مضاف قبل كدا\"",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1232,
+        1856
+      ],
+      "id": "6a3805c2-a68c-4e5a-bbe2-a991f663fade",
+      "name": "Duplicate found3",
+      "webhookId": "70ec846b-62d9-4027-adf1-1e188900fa47",
+      "executeOnce": true,
+      "credentials": {
+        "telegramApi": {
+          "id": "vAcSxBOvwMs1ZZyb",
+          "name": "AqarBot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q",
+          "mode": "list",
+          "cachedResultName": "DATA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "={{ $json.output['نوع العقار '] }}",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "مدخل البيانات": "={{ $json.output['مدخل البيانات'] }}",
+            "اسم المالك": "={{ $json.output['اسم المالك'] }}",
+            "رقم المالك": "={{ $json.output['رقم المالك'] }}",
+            "نوع المالك": "={{ $json.output['نوع المالك'] }}",
+            "المدينة": "={{ $json.output['المدينة'] }}",
+            "المنطقة": "={{ $json.output['المنطقة'] }}",
+            "العنوان ": "={{ $json.output['العنوان '] }}",
+            "ملاحظات": "={{ $json.output['ملاحظات'] }}",
+            "مساحة الأرض": "={{ $json.output['مساحة الأرض'] }}",
+            "المساحة المبنية": "={{ $json.output['المساحة المبنية'] }}",
+            "عدد الأدوار": "={{ $json.output['عدد الأدوار'] }}",
+            "التشطيب": "={{ $json.output['التشطيب '] }}",
+            "واجهة": "={{ $json.output['الواجهة'] }}",
+            "سعر البيع": "={{ $json.output['السعر الاجمالي'] }}",
+            "نوع الشارع": "={{ $json.output['نوع الشارع'] }}",
+            "السعر بالمتر": "={{ $json.output['السعر بالمتر'] }}",
+            "ID": "={{ $json.ID }}",
+            "وقت الادخال": "={{ $now.toFormat('dd/MM/yyyy HH:mm:ss') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "كود قديم",
+              "displayName": "كود قديم",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "وقت الادخال",
+              "displayName": "وقت الادخال",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "مدخل البيانات",
+              "displayName": "مدخل البيانات",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "اسم المالك",
+              "displayName": "اسم المالك",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "رقم المالك",
+              "displayName": "رقم المالك",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "نوع المالك",
+              "displayName": "نوع المالك",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "المدينة",
+              "displayName": "المدينة",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "المنطقة",
+              "displayName": "المنطقة",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "نوع الشارع",
+              "displayName": "نوع الشارع",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "العنوان ",
+              "displayName": "العنوان ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "مساحة الأرض",
+              "displayName": "مساحة الأرض",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "المساحة المبنية",
+              "displayName": "المساحة المبنية",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "عدد الأدوار",
+              "displayName": "عدد الأدوار",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "التشطيب",
+              "displayName": "التشطيب",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "واجهة",
+              "displayName": "واجهة",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "سعر البيع",
+              "displayName": "سعر البيع",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "السعر بالمتر",
+              "displayName": "السعر بالمتر",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ملاحظات",
+              "displayName": "ملاحظات",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "b8b51861-df4c-4e14-83e2-12883fb70002",
+      "name": "Add Property5",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        1984,
+        1968
+      ],
+      "typeVersion": 4.5,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5TEENfk0XwSolden",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('AqarBot Massage').item.json.message.chat.id }}",
+        "text": "=   تمت الاضافه بنجاح .يرجى اضافة الصور الي الملف المسمى \"{{ $json.ID }}\" داخل الملف المسمى {{ $('Information Extractor').item.json.output['نوع العقار '] }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2256,
+        1968
+      ],
+      "id": "9a472e54-79d9-4c47-b45e-5223136e5480",
+      "name": "Confirm Addition5",
+      "webhookId": "70ec846b-62d9-4027-adf1-1e188900fa47",
+      "credentials": {
+        "telegramApi": {
+          "id": "vAcSxBOvwMs1ZZyb",
+          "name": "AqarBot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "b9defd42-687f-42b3-8927-23787d044bd8",
+              "leftValue": "={{ $json.output['المساحة'] }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "81eb9c2e-9afb-46c1-9aa7-dbf31c979624",
+              "leftValue": "={{ $json.output['العنوان '] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "c96d127b-dff3-466e-bc1a-f40c1d46dc5d",
+              "leftValue": "={{ $json.output['السعر الاجمالي'] }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "673f7338-cc66-4799-9968-1ddaa7ab84e0",
+              "leftValue": "={{ $json.output['رقم المالك'] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        368,
+        1968
+      ],
+      "id": "8fbb6b25-70f9-4995-bcb4-b5a86ef55718",
+      "name": "Validate Data3"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "08e9c90d-3782-43b4-b7f3-42f96db0860e",
+              "leftValue": "={{ $json.row_number }}",
+              "rightValue": "=",
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        976,
+        1952
+      ],
+      "id": "8a58f4fd-4c01-4525-af9e-ec97ec224640",
+      "name": "Row Status3",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q",
+          "mode": "list",
+          "cachedResultName": "DATA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "={{ $('Validate Data3').item.json.output['نوع العقار '] }}",
+          "mode": "name"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1440,
+        1968
+      ],
+      "id": "fa7e0833-d999-484f-a908-e32c98256b96",
+      "name": "Get row(s) in sheet5",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5TEENfk0XwSolden",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// اقرأ جميع الصفوف القادمة من Google Sheets\nconst rows = $input.all();\n\nlet maxId = 0;\n\nfor (const row of rows) {\n  // غير \"ID\" لو اسم العمود عندك مختلف\n  const id = row.json.ID;\n\n  if (!id) continue;\n\n  // يستخرج الرقم من ID مثل MN-000123 => 123\n  const match = String(id).match(/\\d+/);\n\n  if (!match) continue;\n\n  const number = parseInt(match[0], 10);\n\n  if (number > maxId) {\n    maxId = number;\n  }\n}\n\nconst newId = \"BT-\" + String(maxId + 1).padStart(1, \"0\");\n\n// خذ بيانات العقار من النود السابقة (عدل الاسم لو مختلف)\nconst property = $('Validate Data3').first().json;\n\nreturn [\n  {\n    json: {\n      ...property,\n      ID: newId\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1744,
+        1968
+      ],
+      "id": "f513daac-d60a-43cb-8e86-fda4297965a5",
+      "name": "Code in JavaScript5"
+    },
+    {
+      "parameters": {
+        "content": "**الشقق بيع او ايجار**\n",
+        "height": 656,
+        "width": 2336
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        224,
+        64
+      ],
+      "typeVersion": 1,
+      "id": "33d156f1-c24d-481d-9fc5-f95fbf7590cf",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "اراضي",
+        "height": 432,
+        "width": 2352,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        208,
+        752
+      ],
+      "typeVersion": 1,
+      "id": "d0edf2c7-c3f9-468d-b5c0-96f0783a366a",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "المحلات بيع او ايجار",
+        "height": 480,
+        "width": 2352,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        208,
+        1216
+      ],
+      "typeVersion": 1,
+      "id": "f435172c-aab6-4f27-9cb4-6bcfcbc4d3d9",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "##بيوت\n",
+        "height": 496,
+        "width": 2352,
+        "color": "#932A2A"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        224,
+        1744
+      ],
+      "typeVersion": 1,
+      "id": "321d2c3c-be65-4404-86c0-e164d96defe9",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "model": "qwen/qwen3-32b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -480,
+        1632
+      ],
+      "id": "a5d938cd-67e8-4c18-98bb-c67bad6922fc",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "ZvbMX55klKh2lDIc",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "qwen/qwen3-32b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -880,
+        1664
+      ],
+      "id": "9f2f7620-c270-4467-b774-8c65a53497b7",
+      "name": "Groq Chat Model1",
+      "credentials": {
+        "groqApi": {
+          "id": "ZvbMX55klKh2lDIc",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## EXTRACT DATA\n\n",
+        "height": 656,
+        "width": 1168,
+        "color": "#6F7939"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1424,
+        1168
+      ],
+      "typeVersion": 1,
+      "id": "8b9f9b40-f983-49b0-9a3d-b1cae5af3b37",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ $('Add Property').item.json.ID }}",
+        "driveId": {
+          "__rl": true,
+          "value": "My Drive",
+          "mode": "list",
+          "cachedResultName": "My Drive",
+          "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1jEbz8p184M64vbTEIMZ0OEF4cHw9fj5e",
+          "mode": "list",
+          "cachedResultName": "شقق للبيع",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1jEbz8p184M64vbTEIMZ0OEF4cHw9fj5e"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        2736,
+        272
+      ],
+      "id": "b834d522-1900-45c1-873d-0c02b4655a8f",
+      "name": "Create folder",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "R6m08afYPojVuixt",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ $('Add Property1').item.json.ID }}",
+        "driveId": {
+          "__rl": true,
+          "value": "My Drive",
+          "mode": "list",
+          "cachedResultName": "My Drive",
+          "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "17I3hypzFleizZXYvNGNtlmxP97WGzugv",
+          "mode": "list",
+          "cachedResultName": "شقق للايجار",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/17I3hypzFleizZXYvNGNtlmxP97WGzugv"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        2736,
+        496
+      ],
+      "id": "41761c02-6efc-4f49-9047-7dc13abed6d1",
+      "name": "Create folder1",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "R6m08afYPojVuixt",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ $('Add Property2').item.json.ID }}",
+        "driveId": {
+          "__rl": true,
+          "value": "My Drive",
+          "mode": "list",
+          "cachedResultName": "My Drive",
+          "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1oJA8xp8yEJi2Lso8FpM-sgGe5JA7ynLm",
+          "mode": "list",
+          "cachedResultName": "أراضي",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1oJA8xp8yEJi2Lso8FpM-sgGe5JA7ynLm"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        2736,
+        944
+      ],
+      "id": "fd56c5f6-ace8-46f1-94e8-b7c0597d642f",
+      "name": "Create folder2",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "R6m08afYPojVuixt",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ $('Add Property3').item.json.ID }}",
+        "driveId": {
+          "__rl": true,
+          "value": "My Drive",
+          "mode": "list",
+          "cachedResultName": "My Drive",
+          "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "=1h_rxRaOtFQDjDZREwxFTx4vXtRzAcn6g",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        2736,
+        1248
+      ],
+      "id": "45843b92-679f-49bf-9b65-39648238d783",
+      "name": "Create folder3",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "R6m08afYPojVuixt",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ $('Add Property4').item.json.ID }}",
+        "driveId": {
+          "__rl": true,
+          "value": "My Drive",
+          "mode": "list",
+          "cachedResultName": "My Drive",
+          "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1Ykvm0uvv7R94SQJFA-jxT0r-4JHGNwYx",
+          "mode": "list",
+          "cachedResultName": "محلات للايجار",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1Ykvm0uvv7R94SQJFA-jxT0r-4JHGNwYx"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        2736,
+        1472
+      ],
+      "id": "0993b3e6-22be-4698-b28a-fdd6a54bc163",
+      "name": "Create folder4",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "R6m08afYPojVuixt",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ $('Add Property5').item.json.ID }}",
+        "driveId": {
+          "__rl": true,
+          "value": "My Drive",
+          "mode": "list",
+          "cachedResultName": "My Drive",
+          "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1yYMenVAja01C8q9HDX3kD2SdwXOmBAXO",
+          "mode": "list",
+          "cachedResultName": "بيوت",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1yYMenVAja01C8q9HDX3kD2SdwXOmBAXO"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        2736,
+        1968
+      ],
+      "id": "612914c0-91f1-4139-a78a-0667bd21d337",
+      "name": "Create folder5",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "R6m08afYPojVuixt",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "*فولدر ل اضافه الصور\n",
+        "height": 2704,
+        "color": "#494C88"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2656,
+        64
+      ],
+      "typeVersion": 1,
+      "id": "157e92ff-46a3-4575-bfea-e78cb914daec",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q",
+          "mode": "list",
+          "cachedResultName": "DATA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "name",
+          "value": "={{ $json.output['نوع العقار '] }}"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "رقم المالك",
+              "lookupValue": "={{ $json.output['رقم المالك'] }}"
+            },
+            {
+              "lookupColumn": "مساحة الأرض",
+              "lookupValue": "={{ $json.output['مساحة الأرض'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        736,
+        2512
+      ],
+      "id": "8c6c1cfa-e843-49b1-b761-bc78691381d9",
+      "name": "Duplicate check4",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5TEENfk0XwSolden",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('AqarBot Massage').item.json.message.chat.id }}",
+        "text": "\"الرجاء التأكد من احتواء الرساله على السعر و المساحه و العنوان و رقم المالك\"",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        560,
+        2384
+      ],
+      "id": "e191a11f-7640-4216-a0f1-13784e692b8e",
+      "name": "Missing data4",
+      "webhookId": "70ec846b-62d9-4027-adf1-1e188900fa47",
+      "credentials": {
+        "telegramApi": {
+          "id": "vAcSxBOvwMs1ZZyb",
+          "name": "AqarBot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('AqarBot Massage').item.json.message.from.id }}",
+        "text": "\"البيت دا مضاف قبل كدا\"",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1248,
+        2416
+      ],
+      "id": "37c3104f-47a2-4d66-b1b0-c0e36fe00052",
+      "name": "Duplicate found4",
+      "webhookId": "70ec846b-62d9-4027-adf1-1e188900fa47",
+      "executeOnce": true,
+      "credentials": {
+        "telegramApi": {
+          "id": "vAcSxBOvwMs1ZZyb",
+          "name": "AqarBot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q",
+          "mode": "list",
+          "cachedResultName": "DATA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "={{ $json.output['نوع العقار '] }}",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "مدخل البيانات": "={{ $json.output['مدخل البيانات'] }}",
+            "اسم المالك": "={{ $json.output['اسم المالك'] }}",
+            "رقم المالك": "={{ $json.output['رقم المالك'] }}",
+            "نوع المالك": "={{ $json.output['نوع المالك'] }}",
+            "المدينة": "={{ $json.output['المدينة'] }}",
+            "المنطقة": "={{ $json.output['المنطقة'] }}",
+            "العنوان ": "={{ $json.output['العنوان '] }}",
+            "ملاحظات": "={{ $json.output['ملاحظات'] }}",
+            "مساحة الأرض": "={{ $json.output['مساحة الأرض'] }}",
+            "المساحة المبنية": "={{ $json.output['المساحة المبنية'] }}",
+            "عدد الأدوار": "={{ $json.output['عدد الأدوار'] }}",
+            "التشطيب": "={{ $json.output['التشطيب '] }}",
+            "واجهة": "={{ $json.output['الواجهة'] }}",
+            "سعر البيع": "={{ $json.output['السعر الاجمالي'] }}",
+            "نوع الشارع": "={{ $json.output['نوع الشارع'] }}",
+            "السعر بالمتر": "={{ $json.output['السعر بالمتر'] }}",
+            "ID": "={{ $json.ID }}",
+            "وقت الادخال": "={{ $now.toFormat('dd/MM/yyyy HH:mm:ss') }}",
+            "نوع الفيلا ": "={{ $json.output['نوع الفيلا '] }}",
+            "بيع | ايجار": "={{ $json.output['بيع | ايجار'] }}",
+            "مساحة الحديقة": "={{ $json.output['مساحة الحديقة'] }}",
+            "مساحة الروف": "={{ $json.output['مساحة الروف'] }}",
+            "نوع الايجار": "={{ $json.output['نوع الايجار'] }}",
+            "سعر الايجار": "={{ $json.output['الايجار'] }}",
+            "عدد الغرف ": "={{ $json.output['عدد الغرف '] }}",
+            "قطع الريسبشن": "={{ $json.output['قطع الريسبشن'] }}",
+            "حمامات": "={{ $json.output['حمامات'] }}",
+            "مطابخ": "={{ $json.output['مطابخ'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "كود قديم",
+              "displayName": "كود قديم",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "وقت الادخال",
+              "displayName": "وقت الادخال",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "مدخل البيانات",
+              "displayName": "مدخل البيانات",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "اسم المالك",
+              "displayName": "اسم المالك",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "رقم المالك",
+              "displayName": "رقم المالك",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "نوع المالك",
+              "displayName": "نوع المالك",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "نوع الفيلا ",
+              "displayName": "نوع الفيلا ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "بيع | ايجار",
+              "displayName": "بيع | ايجار",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "المدينة",
+              "displayName": "المدينة",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "المنطقة",
+              "displayName": "المنطقة",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "نوع الشارع",
+              "displayName": "نوع الشارع",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "العنوان ",
+              "displayName": "العنوان ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "مساحة الأرض",
+              "displayName": "مساحة الأرض",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "المساحة المبنية",
+              "displayName": "المساحة المبنية",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "مساحة الحديقة",
+              "displayName": "مساحة الحديقة",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "مساحة الروف",
+              "displayName": "مساحة الروف",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "عدد الأدوار",
+              "displayName": "عدد الأدوار",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "التشطيب",
+              "displayName": "التشطيب",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "نوع الايجار",
+              "displayName": "نوع الايجار",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "سعر الايجار",
+              "displayName": "سعر الايجار",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "واجهة",
+              "displayName": "واجهة",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "سعر البيع",
+              "displayName": "سعر البيع",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "السعر بالمتر",
+              "displayName": "السعر بالمتر",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "عدد الغرف ",
+              "displayName": "عدد الغرف ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "قطع الريسبشن",
+              "displayName": "قطع الريسبشن",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "حمامات",
+              "displayName": "حمامات",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "مطابخ",
+              "displayName": "مطابخ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ملاحظات",
+              "displayName": "ملاحظات",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "74a15933-7bef-4db3-b4b6-be60ede297e7",
+      "name": "Add Property6",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        2000,
+        2528
+      ],
+      "typeVersion": 4.5,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5TEENfk0XwSolden",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('AqarBot Massage').item.json.message.chat.id }}",
+        "text": "=   تمت الاضافه بنجاح .يرجى اضافة الصور الي الملف المسمى \"{{ $json.ID }}\" داخل الملف المسمى {{ $('Information Extractor').item.json.output['نوع العقار '] }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2272,
+        2528
+      ],
+      "id": "cbb5c88e-360a-4eb6-a166-b84ccbaa9d88",
+      "name": "Confirm Addition6",
+      "webhookId": "70ec846b-62d9-4027-adf1-1e188900fa47",
+      "credentials": {
+        "telegramApi": {
+          "id": "vAcSxBOvwMs1ZZyb",
+          "name": "AqarBot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "b9defd42-687f-42b3-8927-23787d044bd8",
+              "leftValue": "={{ $json.output['المساحة'] }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "81eb9c2e-9afb-46c1-9aa7-dbf31c979624",
+              "leftValue": "={{ $json.output['العنوان '] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "c96d127b-dff3-466e-bc1a-f40c1d46dc5d",
+              "leftValue": "={{ $json.output['السعر الاجمالي'] }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "673f7338-cc66-4799-9968-1ddaa7ab84e0",
+              "leftValue": "={{ $json.output['رقم المالك'] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        384,
+        2528
+      ],
+      "id": "d1d26457-3c12-4423-b379-61200d5f2dbe",
+      "name": "Validate Data4"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "08e9c90d-3782-43b4-b7f3-42f96db0860e",
+              "leftValue": "={{ $json.row_number }}",
+              "rightValue": "=",
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        992,
+        2512
+      ],
+      "id": "4c1c4a4a-2427-435c-bf03-37a52577e01d",
+      "name": "Row Status4",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q",
+          "mode": "list",
+          "cachedResultName": "DATA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "={{ $('Validate Data4').item.json.output['نوع العقار '] }}",
+          "mode": "name"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1456,
+        2528
+      ],
+      "id": "19cb9a87-2d0a-42cb-b6f8-cf423828bbc5",
+      "name": "Get row(s) in sheet6",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5TEENfk0XwSolden",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// اقرأ جميع الصفوف القادمة من Google Sheets\nconst rows = $input.all();\n\nlet maxId = 0;\n\nfor (const row of rows) {\n  // غير \"ID\" لو اسم العمود عندك مختلف\n  const id = row.json.ID;\n\n  if (!id) continue;\n\n  // يستخرج الرقم من ID مثل MN-000123 => 123\n  const match = String(id).match(/\\d+/);\n\n  if (!match) continue;\n\n  const number = parseInt(match[0], 10);\n\n  if (number > maxId) {\n    maxId = number;\n  }\n}\n\nconst newId = \"V-\" + String(maxId + 1).padStart(1, \"0\");\n\n// خذ بيانات العقار من النود السابقة (عدل الاسم لو مختلف)\nconst property = $('Validate Data4').first().json;\n\nreturn [\n  {\n    json: {\n      ...property,\n      ID: newId\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1760,
+        2528
+      ],
+      "id": "24d8e419-a785-457e-b310-68c27f7ac153",
+      "name": "Code in JavaScript6"
+    },
+    {
+      "parameters": {
+        "content": "##بيوت\n",
+        "height": 496,
+        "width": 2352,
+        "color": "#932A2A"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        240,
+        2304
+      ],
+      "typeVersion": 1,
+      "id": "d3348a9b-b871-4c59-ba99-7faf3721ff0a",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ $('Add Property6').item.json.ID }}",
+        "driveId": {
+          "__rl": true,
+          "value": "My Drive",
+          "mode": "list",
+          "cachedResultName": "My Drive",
+          "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1iotYK2clRQMj4J0f9qqqdOkvri74Q27S",
+          "mode": "list",
+          "cachedResultName": "فلل",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1iotYK2clRQMj4J0f9qqqdOkvri74Q27S"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        2752,
+        2528
+      ],
+      "id": "e2c5ec9b-afb3-4fcb-a033-0e4be3437f6b",
+      "name": "Create folder6",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "R6m08afYPojVuixt",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-3.1-flash-lite",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        -1856,
+        752
+      ],
+      "id": "928ac562-4588-45cc-81c3-953aae8a90da",
+      "name": "Google Gemini Chat Model2",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "RfYtiMirCY3F4koM",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-3.1-flash-lite",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        -2256,
+        768
+      ],
+      "id": "d90efe8e-c8bf-491a-917a-ca4a25e47464",
+      "name": "Google Gemini Chat Model3",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "RfYtiMirCY3F4koM",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('AqarBot Massage').item.json.message.chat.id }}",
+        "text": "\"الطلب دا مضاف قبل كدا\"",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -608,
+        400
+      ],
+      "id": "cfab2284-30e8-4686-99d4-7811c79a4f26",
+      "name": "Duplicate found5",
+      "webhookId": "70ec846b-62d9-4027-adf1-1e188900fa47",
+      "executeOnce": true,
+      "credentials": {
+        "telegramApi": {
+          "id": "vAcSxBOvwMs1ZZyb",
+          "name": "AqarBot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q",
+          "mode": "list",
+          "cachedResultName": "DATA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 361616831,
+          "mode": "list",
+          "cachedResultName": "الطلبات",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q/edit#gid=361616831"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "تاريخ الادخال": "={{ $now.toFormat('dd/MM/yyyy HH:mm:ss') }}",
+            "اسم العميل ": "={{ $('client_data_formatter').item.json.output['اسم العميل '] }}",
+            "رقم العميل": "={{ $('client_data_formatter').item.json.output['رقم العميل'] }}",
+            "نوع العقار": "={{ $('client_data_formatter').item.json.output['نوع العقار'] }}",
+            "الموقع 1": "={{ $('client_data_formatter').item.json.output['الموقع 1 '] }}",
+            "الموقع 2": "={{ $('client_data_formatter').item.json.output['الموقع 2'] }}",
+            "الموقع 3": "={{ $('client_data_formatter').item.json.output['الموقع 3 '] }}",
+            "المساحه تقريبا ": "={{ $('client_data_formatter').item.json.output['المساحه'] }}",
+            "الميزانيه تقريبا ": "={{ $('client_data_formatter').item.json.output['الميزانيه'] }}",
+            "عدد غرف ": "={{ $('client_data_formatter').item.json.output['عدد الغرف '] }}",
+            "ملاحظات اخرى ": "={{ $('client_data_formatter').item.json.output['ملاحظات'] }}",
+            "Telegram Chat ID": "={{ $('AqarBot Massage').item.json.message.chat.id }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "تاريخ الادخال",
+              "displayName": "تاريخ الادخال",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "اسم العميل ",
+              "displayName": "اسم العميل ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "رقم العميل",
+              "displayName": "رقم العميل",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "نوع العقار",
+              "displayName": "نوع العقار",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "الموقع 1",
+              "displayName": "الموقع 1",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "الموقع 2",
+              "displayName": "الموقع 2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "الموقع 3",
+              "displayName": "الموقع 3",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "المساحه تقريبا ",
+              "displayName": "المساحه تقريبا ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "الميزانيه تقريبا ",
+              "displayName": "الميزانيه تقريبا ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "عدد غرف ",
+              "displayName": "عدد غرف ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ملاحظات اخرى ",
+              "displayName": "ملاحظات اخرى ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Telegram Chat ID",
+              "displayName": "Telegram Chat ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "097dfe54-89dd-48a4-bed1-dc5222f7f99e",
+      "name": "Add Property7",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        -368,
+        544
+      ],
+      "typeVersion": 4.5,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5TEENfk0XwSolden",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('AqarBot Massage').item.json.message.chat.id }}",
+        "text": "=  تم اضافة طلب {{ $json['اسم العميل '] }} بنجاح",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -112,
+        544
+      ],
+      "id": "1f92e522-bca1-4681-9605-356063bbef4a",
+      "name": "Confirm Addition7",
+      "webhookId": "70ec846b-62d9-4027-adf1-1e188900fa47",
+      "credentials": {
+        "telegramApi": {
+          "id": "vAcSxBOvwMs1ZZyb",
+          "name": "AqarBot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "08e9c90d-3782-43b4-b7f3-42f96db0860e",
+              "leftValue": "={{ $json.row_number }}",
+              "rightValue": "=",
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -736,
+        528
+      ],
+      "id": "c1cd484c-4e53-493d-b1d3-5851e3e6b2ac",
+      "name": "Row Status5",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "model": "qwen/qwen3-32b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -1744,
+        768
+      ],
+      "id": "ccc31069-7962-4745-85e6-625dd62f3883",
+      "name": "Groq Chat Model2",
+      "credentials": {
+        "groqApi": {
+          "id": "ZvbMX55klKh2lDIc",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "qwen/qwen3-32b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -2112,
+        784
+      ],
+      "id": "8a40b1c3-2be8-4bd6-a5ec-b6f4c0ba4512",
+      "name": "Groq Chat Model3",
+      "credentials": {
+        "groqApi": {
+          "id": "ZvbMX55klKh2lDIc",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-3.1-flash-lite",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        -3280,
+        1600
+      ],
+      "id": "be11e220-af41-4897-bbb7-c9d03578d41f",
+      "name": "Google Gemini Chat Model4",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "RfYtiMirCY3F4koM",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "qwen/qwen3-32b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -3168,
+        1600
+      ],
+      "id": "f861934f-816d-48ea-ba93-85a9b583e8f3",
+      "name": "Groq Chat Model4",
+      "credentials": {
+        "groqApi": {
+          "id": "ZvbMX55klKh2lDIc",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 720,
+        "width": 2576
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2448,
+        288
+      ],
+      "typeVersion": 1,
+      "id": "a7a85484-3323-4b37-8d57-5cd6c501ba42",
+      "name": "Sticky Note7"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-3.1-flash-lite",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        -2592,
+        2416
+      ],
+      "id": "2ad6dbfd-85a4-453f-a000-161a01e0ddb6",
+      "name": "Google Gemini Chat Model5",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "RfYtiMirCY3F4koM",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -3792,
+        1328
+      ],
+      "id": "29ac15e4-88d9-431d-aa4c-f1994bbb7bc6",
+      "name": "AqarBot Massage",
+      "webhookId": "e397c50f-ef51-485d-b37a-c028b0d0f014",
+      "credentials": {
+        "telegramApi": {
+          "id": "vAcSxBOvwMs1ZZyb",
+          "name": "AqarBot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message.text }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=أنت مصنف ذكي مخصص لنظام إدارة العقارات الداخلي الخاص بموظفي الشركة. مهمتك هي تحليل نص الرسالة المدخلة بواسطة الموظف وتصنيفها بدقة إلى تصنيف واحد فقط من التصنيفات الثلاثة التالية بناءً على سياق ونية الرسالة:\n\n1. \"add_property\" (إضافة عقار):\n   - النية: الموظف يعرض عقاراً جديداً متوفراً لديه للبيع أو الإيجار ليدخله في النظام.\n   - العلامات: تحتوي الرسالة على تفاصيل عقار معروض (مثل: شقة للبيع، فيلا للإيجار، متوفر لدينا، للبيع عقار...) حتى لو لم يكتب الموظف رقم الهاتف أو نسيه، أو كتب عبارات مثل (تواصل خاص، الرقم في الخاص، تفاصيل المالك بالداخل).\n   - مثال: \"شقة للبيع بالياسمين 3 غرف وصالة مطلوب مليون و200\" -> add_property\n\n2. \"client_request\" (إضافة طلب عميل):\n   - النية: الموظف يسجل رغبة أو طلب عميل يبحث عن مواصفات معينة لشرائها أو استئجارها.\n   - العلامات: وجود اسم عميل (مثل: أبو فهد، العميل خالد...) أو الإشارة الواضحة لـ \"طلب\" أو \"زبون يدور\".\n   - مثال: \"العميل محمد يبي أرض تجارية شمال الرياض ميزانية 3 مليون\" -> client_request\n\n3. \"search_inquiry\" (بحث في الداتا):\n   - النية: الموظف يستعلم بشكل سريع ومباشر للتأكد من وجود عقار ما في الداتا الحالية للشركة.\n   - العلامات: رسالة مختصرة جداً تحتوي على مواصفات سطحية فقط (مثل: مطلوب شقة، أبي فيلا، في شقة...) دون ذكر اسم أي عميل، ودون صيغة عرض عقار جديد للبيع أو الإيجار.\n   - مثال: \"مطلوب شقة 3 غرف حي الملقا بحدود 800 ألف\" -> search_inquiry\n\n---\n📌 قواعد صارمة للمخرجات:\n- رد بالكلمة المفتاحية الإنجليزية للتصنيف فقط دون أي مقدمات أو شرح أو علامات ترقيم:\n  إما (add_property) أو (client_request) أو (search_inquiry).\n- لا تكتب \"التصنيف:\" أو \"النتيجة:\". أرسل الكلمة المحددة فقط.\n\n---\n💡 أمثلة توضيحية لتوجيه النموذج (حتى في حالات نقص البيانات):\n\n- الرسالة: \"شقة للبيع حي النرجس دور اول 120 متر بـ 900 الف\" (ملاحظة: لا يوجد رقم هاتف، ولكنها صيغة عرض عقار واضح)\n  التصنيف: add_property\n\n- الرسالة: \"طلب العميل خالد الحربي شقة إيجار 4 غرف في الروضة بحدود 45 الف\"\n  التصنيف: client_request\n\n- الرسالة: \"شقة 3 غرف حي النزهة بحدود 60 ألف\" (ملاحظة: صيغة استعلام سريعة بدون عميل وبدون عرض عقار)\n  التصنيف: search_inquiry\n\n- الرسالة: \"فيلا للبيع بالياسمين مساحة 350م درج صالة وشقتين تواصل خاص\"\n  التصنيف: add_property\n\n- الرسالة: \"الزبون يدور على دبلكس بالشرق ميزانيته مليون و 800\"\n  التصنيف: client_request\n\n- الرسالة: \"مطلوب عمارة تجارية دخلها لا يقل عن 8%\"\n  التصنيف: search_inquiry"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        -3312,
+        1328
+      ],
+      "id": "7b9b4b67-3a12-4d76-8ab3-f8c601c4f444",
+      "name": "message_type_detector"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.text }}",
+                    "rightValue": "add_property",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "0e7dc0f4-cf6a-45cd-b913-3e2df820388e"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "4b1f0176-7cd0-4b4b-b3ea-0e1204220b85",
+                    "leftValue": "={{ $json.text }}",
+                    "rightValue": "client_request",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "8dee0e19-9ab7-44a8-b9f7-1ec0e61747d2",
+                    "leftValue": "={{ $json.text }}",
+                    "rightValue": "search_inquiry",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -2800,
+        1312
+      ],
+      "id": "471ff603-33b0-42ee-a26b-5b9a5b9d30aa",
+      "name": "message_type_router"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('AqarBot Massage').item.json.message.text }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=# الدور\nأنت محلل احترافي لطلبات العملاء العقارية. مهمتك هي قراءة رسالة العميل باللغة العربية واستخراج البيانات المطلوبة فقط.\n\n# التعليمات\n\n- الإدخال سيكون رسالة واحدة باللغة العربية.\n- افهم اللهجة المصرية والفصحى.\n- استخرج المعلومات الموجودة فقط.\n- لا تخمن أي معلومة غير مذكورة.\n- إذا لم تجد قيمة أحد الحقول اتركه فارغا ولا تكتب اي شيء .\n- إذا ذكر العميل أكثر من منطقة، وزعها على الموقع 1 ثم الموقع 2 ثم الموقع 3 حسب ترتيب ذكرها.\n- إذا ذكر أكثر من 3 مناطق، ضع أول ثلاث مناطق فقط، وانقل الباقي إلى \"ملاحظات أخرى\".\n- إذا ذكر العميل مساحة تقريبية مثل:\n  - حوالي 150\n  - من 120 لـ160\n  - فوق 200\n  - أقل من 100\n  فاكتبها كما فهمتها بشكل مختصر دون تغيير المعنى.\n- إذا ذكر ميزانية تقريبية أو مدى سعري فاكتبها كما هي بصورة مختصرة.\n- لا تضف أي شرح أو تعليق.\n- لا تكتب أي نص خارج النموذج المطلوب.\n- جميع المخرجات باللغة العربية فقط.\n\n# أنواع العقارات المقبولة\n\nشقة للبيع\nشقة للايجار\nمحل للبيع \nمحل للايجار \nفيلا \nارض\nبيت \n\n\n# المخرجات المطلوبة (JSON فقط)\n\n{\n  \"اسم العميل\": \"\",\n  \"رقم العميل\": \"\",\n  \"نوع العقار\": \"\",\n  \"الموقع 1\": \"\",\n  \"الموقع 2\": \"\",\n  \"الموقع 3\": \"\",\n  \"المساحة تقريبا\": \"\",\n  \"الميزانية تقريبا\": \"\",\n  \"عدد غرف\": \"\",\n  \"ملاحظات أخرى\": \"\"\n}\n\n# أمثلة\n\nرسالة:\nأنا أحمد، بدور على شقة في مدينة نصر أو التجمع الخامس، حوالي 160 متر، ميزانيتي من 3 لـ4 مليون، 3 غرف.\n\nالناتج:\n\n{\n  \"اسم العميل\": \"أحمد\",\n  \"رقم العميل\": \"\",\n  \"نوع العقار\": \"شقة\",\n  \"الموقع 1\": \"مدينة نصر\",\n  \"الموقع 2\": \"التجمع الخامس\",\n  \"الموقع 3\": \"\",\n  \"المساحة تقريبا\": \"حوالي 160 متر\",\n  \"الميزانية تقريبا\": \"3 إلى 4 مليون\",\n  \"عدد غرف\": \"3\",\n  \"ملاحظات أخرى\": \"\"\n}\n\nرسالة:\nعايز محل للإيجار في المنصورة قريب من الجامعة والميزانية في حدود 15 ألف.\n\nالناتج:\n\n{\n  \"اسم العميل\": \"\",\n  \"رقم العميل\": \"\",\n  \"نوع العقار\": \"محل\",\n  \"الموقع 1\": \"المنصورة\",\n  \"الموقع 2\": \"قريب من الجامعة\",\n  \"الموقع 3\": \"\",\n  \"المساحة تقريبا\": \"\",\n  \"الميزانية تقريبا\": \"حوالي 15000\",\n  \"عدد غرف\": \"\",\n  \"ملاحظات أخرى\": \"للإيجار\"\n}\n\n# الرسالة\n{{ $json.message.text }}\n\nاستخرج البيانات وأعد JSON فقط بدون أي نص إضافي."
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        -2256,
+        544
+      ],
+      "id": "2ba83ad4-1851-4ddc-a200-83ff2f3e4a1a",
+      "name": "client_request_extractor"
+    },
+    {
+      "parameters": {
+        "text": "={{ $json.text }}",
+        "attributes": {
+          "attributes": [
+            {
+              "name": "اسم العميل ",
+              "description": "اسم العميل طالب العقار",
+              "required": false
+            },
+            {
+              "name": "رقم العميل",
+              "description": "رقم هاتفه",
+              "required": false
+            },
+            {
+              "name": "نوع العقار",
+              "description": "نوع العقار المطلوب ",
+              "required": false
+            },
+            {
+              "name": "الموقع 1 ",
+              "description": "المكان المطلوب الاول ",
+              "required": false
+            },
+            {
+              "name": "الموقع 2",
+              "description": "المكان المطلوب الثاني",
+              "required": false
+            },
+            {
+              "name": "الموقع 3 ",
+              "description": "المكان المطلوب الثالت",
+              "required": false
+            },
+            {
+              "name": "المساحه",
+              "description": "المساحه المطلوبه تقريبا",
+              "required": false
+            },
+            {
+              "name": "الميزانيه",
+              "description": "الميزانيه المتوفره",
+              "required": false
+            },
+            {
+              "name": "عدد الغرف ",
+              "description": "عدد الغرف المطلوب",
+              "required": false
+            },
+            {
+              "name": "ملاحظات",
+              "description": "ملاحظات اضافيه",
+              "required": false
+            }
+          ]
+        },
+        "options": {
+          "systemPromptTemplate": "=# الدور\nأنت محلل احترافي لطلبات العملاء العقارية. مهمتك هي قراءة رسالة العميل باللغة العربية واستخراج البيانات المطلوبة فقط.\n\n# التعليمات\n\n- الإدخال سيكون رسالة واحدة باللغة العربية.\n- افهم اللهجة المصرية والفصحى.\n- استخرج المعلومات الموجودة فقط.\n- لا تخمن أي معلومة غير مذكورة.\n- إذا لم تجد قيمة أحد الحقول اتركه فارغا ولا تكتب اي شيء .\n- إذا ذكر العميل أكثر من منطقة، وزعها على الموقع 1 ثم الموقع 2 ثم الموقع 3 حسب ترتيب ذكرها.\n- إذا ذكر أكثر من 3 مناطق، ضع أول ثلاث مناطق فقط، وانقل الباقي إلى \"ملاحظات أخرى\".\n- إذا ذكر العميل مساحة تقريبية مثل:\n  - حوالي 150\n  - من 120 لـ160\n  - فوق 200\n  - أقل من 100\n  فاكتبها كما فهمتها بشكل مختصر دون تغيير المعنى.\n- إذا ذكر ميزانية تقريبية أو مدى سعري فاكتبها كما هي بصورة مختصرة.\n- لا تضف أي شرح أو تعليق.\n- لا تكتب أي نص خارج النموذج المطلوب.\n- جميع المخرجات باللغة العربية فقط.\n\n# أنواع العقارات المقبولة\n\nشقة للبيع\nشقة للايجار\nمحل للبيع \nمحل للايجار \nفيلا \nارض\nبيت \n\n\n# المخرجات المطلوبة (JSON فقط)\n\n{\n  \"اسم العميل\": \"\",\n  \"رقم العميل\": \"\",\n  \"نوع العقار\": \"\",\n  \"الموقع 1\": \"\",\n  \"الموقع 2\": \"\",\n  \"الموقع 3\": \"\",\n  \"المساحة تقريبا\": \"\",\n  \"الميزانية تقريبا\": \"\",\n  \"عدد غرف\": \"\",\n  \"ملاحظات أخرى\": \"\"\n}\n\n# أمثلة\n\nرسالة:\nأنا أحمد، بدور على شقة في مدينة نصر أو التجمع الخامس، حوالي 160 متر، ميزانيتي من 3 لـ4 مليون، 3 غرف.\n\nالناتج:\n\n{\n  \"اسم العميل\": \"أحمد\",\n  \"رقم العميل\": \"\",\n  \"نوع العقار\": \"شقة\",\n  \"الموقع 1\": \"مدينة نصر\",\n  \"الموقع 2\": \"التجمع الخامس\",\n  \"الموقع 3\": \"\",\n  \"المساحة تقريبا\": \"حوالي 160 متر\",\n  \"الميزانية تقريبا\": \"3 إلى 4 مليون\",\n  \"عدد غرف\": \"3\",\n  \"ملاحظات أخرى\": \"\"\n}\n\nرسالة:\nعايز محل للإيجار في المنصورة قريب من الجامعة والميزانية في حدود 15 ألف.\n\nالناتج:\n\n{\n  \"اسم العميل\": \"\",\n  \"رقم العميل\": \"\",\n  \"نوع العقار\": \"محل\",\n  \"الموقع 1\": \"المنصورة\",\n  \"الموقع 2\": \"قريب من الجامعة\",\n  \"الموقع 3\": \"\",\n  \"المساحة تقريبا\": \"\",\n  \"الميزانية تقريبا\": \"حوالي 15000\",\n  \"عدد غرف\": \"\",\n  \"ملاحظات أخرى\": \"للإيجار\"\n}\n\n# الرسالة\n{{ $json.text }}\n\n\nاستخرج البيانات وأعد JSON فقط بدون أي نص إضافي."
+        }
+      },
+      "id": "70562119-9012-4805-9389-05850e6f216c",
+      "name": "client_data_formatter",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "position": [
+        -1824,
+        544
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "b9defd42-687f-42b3-8927-23787d044bd8",
+              "leftValue": "={{ $json.output['رقم العميل'] }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "81eb9c2e-9afb-46c1-9aa7-dbf31c979624",
+              "leftValue": "={{ $json.output['المساحه'] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "c96d127b-dff3-466e-bc1a-f40c1d46dc5d",
+              "leftValue": "={{ $json.output['الميزانيه'] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -1392,
+        544
+      ],
+      "id": "43644621-5e38-47df-a5e3-152f32eef937",
+      "name": "check_required_fields"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('AqarBot Massage').item.json.message.chat.id }}",
+        "text": "={{\n(() => {\n  const fields = $('check_required_fields').item.json.output;\n  let missing = [];\n\n  if (!fields['رقم العميل']) missing.push(\"• رقم العميل\");\n  if (!fields['المساحه'] && !fields['المساحة']) missing.push(\"• المساحة التقريبية\");\n  if (!fields['الميزانيه'] && !fields['الميزانية']) missing.push(\"• الميزانية المتاحة\");\n\n  return `⚠️ عذراً، هناك بيانات ناقصة لإتمام الطلب. يرجى تزويدنا بـ:\\n\\n${missing.join('\\n')}\\n\\nيرجى إعادة إرسال الرسالة كاملة بعد التعديل.`;\n})()\n}}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -1232,
+        400
+      ],
+      "id": "8977fe9e-c356-4153-8a60-6ffdf20b1424",
+      "name": "send_missing_data_alert",
+      "webhookId": "70ec846b-62d9-4027-adf1-1e188900fa47",
+      "credentials": {
+        "telegramApi": {
+          "id": "vAcSxBOvwMs1ZZyb",
+          "name": "AqarBot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q",
+          "mode": "list",
+          "cachedResultName": "DATA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 361616831,
+          "mode": "list",
+          "cachedResultName": "الطلبات",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q/edit#gid=361616831"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "اسم العميل ",
+              "lookupValue": "={{ $json.output['اسم العميل '] }}"
+            },
+            {
+              "lookupColumn": "رقم العميل",
+              "lookupValue": "={{ $json.output['رقم العميل'] }}"
+            },
+            {
+              "lookupColumn": "نوع العقار",
+              "lookupValue": "={{ $json.output['نوع العقار'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -992,
+        528
+      ],
+      "id": "bd82e915-0cae-4132-ae6f-b80c7dddbeae",
+      "name": "client_duplicate_check",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5TEENfk0XwSolden",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "text": "={{ $('AqarBot Massage').item.json.message.text }}",
+        "attributes": {
+          "attributes": [
+            {
+              "name": "نوع العقار",
+              "description": "أنواع العقارات المسموح بها فقط:  - شقق للبيع - شقق للايجار - محلات للبيع - محلات للايجار - فلل - بيوت - أراضي - مكاتب - مخازن - غير معروف  لو مكتوب برج خلي نوع العقار بيوت  طلع نوع العقار بنفس الصيغه الل انا كاتبهالك دي  مثال :لا تكتب شقه للايجار ,اكتب شقق للايجار  العيادات و المطاعم و الاستديوهات و ما شابه يعتبر نوع العقار محلات و استنتج للبيع ان للايجار العمارات و الابراج و البيوت هم نوع العقار بيوت",
+              "required": true
+            }
+          ]
+        },
+        "options": {
+          "systemPromptTemplate": "=أنت خبير محرك بحث عقاري لنظام (ALSAFA DATA ENTRY). مهمتك هي استخراج معايير البحث (Search Criteria) من رسالة المستخدم لتمكين النظام من الاستعلام عنها داخل جداول البيانات (Google Sheets).\n\nقم بتحليل النص المستلم واستخراج القيم المطلوبة بدقة تامة مع مراعاة القواعد التالية:\n1. تنظيف المسميات: تأكد من صياغة نوع العقار (شقة، أرض، محل، بيت) ونوع المعاملة (بيع، إيجار) بشكل قياسي وموحد ليسهل مطابقتها مع أعمدة الشيت.\n2. استخلاص الكلمات المفتاحية: في حقل `search_keywords` ضع المزايا الإضافية التي يطلبها العميل (مثل: \"ركنية\"، \"جديدة\"، \"قريبة من الخدمات\") لكي نستخدمها كفلتر فرعي.\n3. الميزانية: إذا قال العميل \"في حدود 50 ألف\" أو \"أقل من 600 ألف\"، استخرج الرقم فقط وضعه في حقل `max_price`.\n4. إذا كان النص لا يحتوي على معلمة معينة بشكل صريح، اترك الحقل فارغاً أو \"غير محدد\" ولا تخمن قيمة من عندك.\n\nحلل النص التالي واستخرج الخصائص المطلوبة:"
+        }
+      },
+      "id": "80ca0fac-685d-4a86-af43-b526760a12e8",
+      "name": "search_data_extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "position": [
+        -2512,
+        2144
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('AqarBot Massage').item.json.message.chat.id }}",
+        "contextWindowLength": 30
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        -1632,
+        2400
+      ],
+      "id": "bb0da92d-a902-4be5-8a66-9787a091012c",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('AqarBot Massage').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -1168,
+        2144
+      ],
+      "id": "26b1e4b3-2cd1-4f83-9783-a3c2f40c95aa",
+      "name": "Send a text message",
+      "webhookId": "d5cfff7e-de5d-4b03-8959-c0858ea041c4",
+      "credentials": {
+        "telegramApi": {
+          "id": "vAcSxBOvwMs1ZZyb",
+          "name": "AqarBot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q",
+          "mode": "list",
+          "cachedResultName": "DATA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "={{ $json.output['نوع العقار'] }}",
+          "mode": "name"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        -1392,
+        2336
+      ],
+      "id": "9fb47e98-41c9-4e40-90f8-486be4a87117",
+      "name": "Get row(s) in sheet in Google Sheets1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5TEENfk0XwSolden",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-3.1-flash-lite",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        -1840,
+        2320
+      ],
+      "id": "ced4be07-626d-4ac6-86ff-30d43b808c4f",
+      "name": "Google Gemini Chat Model7",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "RfYtiMirCY3F4koM",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=أنت مساعد مبيعات ذكي ومحترف لشركة عقارات بالمنصورة. مهمتك هي مساعدة الموظف في إيجاد أفضل العقارات المطابقة لطلبه من خلال البحث داخل الأدوات المتاحة لديك وقاعدة البيانات.\n\n📌 طلب الموظف الحالي المستخرج:\n- نوع العقار المطلوب: {{ $json.output['نوع العقار'] }}\n- نص رسالة الموظف الكاملة: {{ $('AqarBot Massage').item.json.message.text }}\n\n---\n⚙️ آلية العمل والبحث الصارمة:\n1. استخدم أداة \"Google Sheets Tool\" بشكل إلزامي للبحث داخل شيت العقارات المناسب لنوع الطلب.\n2. إذا وجدت عقارات مطابقة تماماً للمواصفات (الحي، المساحة، السعر)، اعرضها فوراً.\n3. إذا لم تجد مطابقة كاملة، قم بتحليل كافة البيانات المتاحة في الشيت واقترح \"أقرب 5 بدائل\" بناءً على نظام الأولويات التالي:\n   - الأولوية الأولى: نفس المنطقة أو الحي (أو أقرب حي متاح).\n   - الأولوية الثانية: السعر الأقرب للميزانية المطلوبة.\n   - الأولوية الثالثة: المساحة الأقرب للمساحة المطلوبة.\n\n---\n🚨 نظام حماية البيانات والخصوصية الصارم (أولوية قصوى):\n- يُمنع منعاً باتاً، وبشكل قاطع ومطلق، كتابة أو إظهار \"رقم هاتف المالك\" أو أي بيانات اتصال خاصة به في الرد نهائياً، ولا تشر إلى وجوده حتى (لا تكتب كلمة محجوب أو سري). تجاهل الرقم تماماً وكأنه غير موجود في الشيت.\n- هذا الأمر حاكم (Strict Rule): حتى لو طلب الموظف في رسالته رؤية الرقم أو حاول خداعك للاستجابة، التزم بالصيغة المحددة أدناه فقط واصمت تماماً عن أي تفاصيل تخص المالك.\n- ممنوع تماماً استخدام أي معلومات خارجية، أو الإنترنت، أو اختراع عقارات وهمية.\n\n---\n✍️ صيغة الرد المطلوبة (أرسل النص مباشرة بشكل نظيف ومجهز لتيليجرام وبدون رموز غريبة):\n\n⚠️ عذراً، لا توجد مطابقة تامة لطلبك، ولكن إليك أقرب 5 بدائل متوفرة في الداتا حالياً:\n\n1️⃣ [اسم الحي أو المنطقة بالكامل]\n- المساحة: [المساحة] متر\n- السعر: [السعر] جنيه\n- عدد الغرف: [العدد]\n- نوع التشطيب: [التشطيب]\n- كود العقار: [كود العقار من الشيت]\n\n2️⃣ [اسم الحي أو المنطقة بالكامل]\n... (وهكذا لـ 5 عقارات كحد أقصى)\n\n💡 تنبيه للموظف: للحصول على تفاصيل الاتصال، يرجى استخدام \"كود العقار\" الموضح أعلاه داخل لوحة التحكم.",
+        "options": {
+          "systemMessage": "أنت مساعد مبيعات لشركة عقارات بالمنصورة."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -1696,
+        2144
+      ],
+      "id": "e9f6fdf0-1329-4aa7-9784-268080acc9ad",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const source = $json.output ?? $json;\nconst first = (...values) => values.find((value) => value !== undefined && value !== null && String(value).trim() !== '') ?? '';\n\nreturn [{\n  json: {\n    property_id: $json.ID ?? '',\n    property_type: first(source['نوع العقار '], source['نوع العقار']),\n    property_location: first(source['المنطقة'], source['العنوان '], source['العنوان']),\n    property_area: first(source['المساحة'], source['مساحة الأرض'], source['المساحة المبنية']),\n    property_price: first(source['السعر الاجمالي'], source['سعر البيع'], source['الايجار']),\n  },\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2400,
+        2350
+      ],
+      "id": "aqarbot-followup-prepare",
+      "name": "Prepare Request Follow-up"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1t3YlymJ4BLCMNtAr5gJWuwf1FR8F9OgzMw8VVC9_P5Q",
+          "mode": "list",
+          "cachedResultName": "DATA"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 361616831,
+          "mode": "list",
+          "cachedResultName": "الطلبات"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2625,
+        2350
+      ],
+      "alwaysOutputData": true,
+      "id": "aqarbot-followup-requests",
+      "name": "Get Pending Client Requests",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5TEENfk0XwSolden",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const property = $('Prepare Request Follow-up').item.json;\nconst normalize = (value) => String(value ?? '')\n  .toLowerCase()\n  .replace(/[أإآ]/g, 'ا')\n  .replace(/ة/g, 'ه')\n  .replace(/ى/g, 'ي')\n  .replace(/[^\u0621-\u064aa-z0-9]/g, '');\n\nconst propertyType = normalize(property.property_type);\nconst propertyLocation = normalize(property.property_location);\n\nreturn $input.all()\n  .filter(({ json: request }) => {\n    const chatId = request['Telegram Chat ID'];\n    const requestType = normalize(request['نوع العقار']);\n    const locations = ['الموقع 1', 'الموقع 2', 'الموقع 3']\n      .map((key) => normalize(request[key]))\n      .filter(Boolean);\n    const typeMatch = propertyType && requestType && (propertyType.includes(requestType) || requestType.includes(propertyType));\n    const locationMatch = locations.length > 0 && propertyLocation && locations.some((location) => propertyLocation.includes(location) || location.includes(propertyLocation));\n    return Boolean(chatId && typeMatch && locationMatch);\n  })\n  .map(({ json: request }) => ({\n    json: {\n      chat_id: request['Telegram Chat ID'],\n      client_name: request['اسم العميل '] || 'العميل',\n      property_id: property.property_id,\n      property_type: property.property_type,\n      property_location: property.property_location,\n      property_area: property.property_area,\n      property_price: property.property_price,\n    },\n  }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2850,
+        2350
+      ],
+      "id": "aqarbot-followup-match",
+      "name": "Find Matching Requests"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chat_id }}",
+        "text": "=🔔 تم إضافة عقار قد يناسب طلبك المسجل.\n\n• العميل: {{ $json.client_name }}\n• كود العقار: {{ $json.property_id }}\n• النوع: {{ $json.property_type }}\n• المنطقة: {{ $json.property_location }}\n• المساحة: {{ $json.property_area }}\n• السعر: {{ $json.property_price }}\n\nراجع العقار وتواصل مع العميل إذا كان مناسباً.",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        3075,
+        2350
+      ],
+      "id": "aqarbot-followup-notify",
+      "name": "Notify Request Owner",
+      "credentials": {
+        "telegramApi": {
+          "id": "vAcSxBOvwMs1ZZyb",
+          "name": "AqarBot"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Information Extractor": {
+      "main": [
+        [
+          {
+            "node": "3qar type",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Information Extractor",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Duplicate check": {
+      "main": [
+        [
+          {
+            "node": "Row Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Property": {
+      "main": [
+        [
+          {
+            "node": "Confirm Addition",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Confirm Addition": {
+      "main": [
+        [
+          {
+            "node": "Create folder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Data": {
+      "main": [
+        [
+          {
+            "node": "Duplicate check",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Missing data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Row Status": {
+      "main": [
+        [
+          {
+            "node": "Duplicate found",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Information Extractor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Add Property",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Prepare Request Follow-up",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get row(s) in sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Property1": {
+      "main": [
+        [
+          {
+            "node": "Confirm Addition1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Confirm Addition1": {
+      "main": [
+        [
+          {
+            "node": "Create folder1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet1": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Add Property1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Prepare Request Follow-up",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "3qar type": {
+      "main": [
+        [
+          {
+            "node": "Validate Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Validate Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Validate Data1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Validate Data2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Validate Data2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Validate Data3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Validate Data4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Duplicate check1": {
+      "main": [
+        [
+          {
+            "node": "Row Status1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Property2": {
+      "main": [
+        [
+          {
+            "node": "Confirm Addition2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Confirm Addition2": {
+      "main": [
+        [
+          {
+            "node": "Create folder2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Data1": {
+      "main": [
+        [
+          {
+            "node": "Duplicate check1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Missing data1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Row Status1": {
+      "main": [
+        [
+          {
+            "node": "Duplicate found1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get row(s) in sheet2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet2": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript2": {
+      "main": [
+        [
+          {
+            "node": "Add Property2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Prepare Request Follow-up",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Duplicate check2": {
+      "main": [
+        [
+          {
+            "node": "Row Status2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Property3": {
+      "main": [
+        [
+          {
+            "node": "Confirm Addition3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Confirm Addition3": {
+      "main": [
+        [
+          {
+            "node": "Create folder3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Data2": {
+      "main": [
+        [
+          {
+            "node": "Duplicate check2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Missing data2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Row Status2": {
+      "main": [
+        [
+          {
+            "node": "Duplicate found2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet3": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript3": {
+      "main": [
+        [
+          {
+            "node": "Add Property3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Prepare Request Follow-up",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get row(s) in sheet4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Property4": {
+      "main": [
+        [
+          {
+            "node": "Confirm Addition4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Confirm Addition4": {
+      "main": [
+        [
+          {
+            "node": "Create folder4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet4": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript4": {
+      "main": [
+        [
+          {
+            "node": "Add Property4",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Prepare Request Follow-up",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Duplicate check3": {
+      "main": [
+        [
+          {
+            "node": "Row Status3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Property5": {
+      "main": [
+        [
+          {
+            "node": "Confirm Addition5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Confirm Addition5": {
+      "main": [
+        [
+          {
+            "node": "Create folder5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Data3": {
+      "main": [
+        [
+          {
+            "node": "Duplicate check3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Missing data3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Row Status3": {
+      "main": [
+        [
+          {
+            "node": "Duplicate found3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get row(s) in sheet5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet5": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript5": {
+      "main": [
+        [
+          {
+            "node": "Add Property5",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Prepare Request Follow-up",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Duplicate check4": {
+      "main": [
+        [
+          {
+            "node": "Row Status4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Property6": {
+      "main": [
+        [
+          {
+            "node": "Confirm Addition6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Confirm Addition6": {
+      "main": [
+        [
+          {
+            "node": "Create folder6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Data4": {
+      "main": [
+        [
+          {
+            "node": "Duplicate check4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Missing data4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Row Status4": {
+      "main": [
+        [
+          {
+            "node": "Duplicate found4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get row(s) in sheet6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet6": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript6": {
+      "main": [
+        [
+          {
+            "node": "Add Property6",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Prepare Request Follow-up",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "client_data_formatter",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "client_request_extractor",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Property7": {
+      "main": [
+        [
+          {
+            "node": "Confirm Addition7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Row Status5": {
+      "main": [
+        [
+          {
+            "node": "Duplicate found5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Add Property7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "message_type_detector",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model5": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "search_data_extractor",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AqarBot Massage": {
+      "main": [
+        [
+          {
+            "node": "message_type_detector",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "message_type_detector": {
+      "main": [
+        [
+          {
+            "node": "message_type_router",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "message_type_router": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "client_request_extractor",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "search_data_extractor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "client_request_extractor": {
+      "main": [
+        [
+          {
+            "node": "client_data_formatter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "client_data_formatter": {
+      "main": [
+        [
+          {
+            "node": "check_required_fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "check_required_fields": {
+      "main": [
+        [
+          {
+            "node": "client_duplicate_check",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "send_missing_data_alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "client_duplicate_check": {
+      "main": [
+        [
+          {
+            "node": "Row Status5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "search_data_extractor": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet in Google Sheets1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model7": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Request Follow-up": {
+      "main": [
+        [
+          {
+            "node": "Get Pending Client Requests",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Pending Client Requests": {
+      "main": [
+        [
+          {
+            "node": "Find Matching Requests",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find Matching Requests": {
+      "main": [
+        [
+          {
+            "node": "Notify Request Owner",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "e2ef5aba-c1e6-48ae-835b-4c66d6e0233e",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "4c1b668c03ffd05d6ce208ec74d281c9961fafc8cb1291e06cbb8b565a853c1c"
+  },
+  "nodeGroups": [],
+  "id": "6Ru3CxDEaZGqZBdr",
+  "tags": []
+}
